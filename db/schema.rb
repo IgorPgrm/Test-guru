@@ -52,4 +52,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_075930) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "answers", "questions", column: "questions_id"
+  add_foreign_key "questions", "tests", column: "tests_id"
+  add_foreign_key "tests", "categories"
 end
