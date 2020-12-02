@@ -7,8 +7,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-front = Category.create!(title: 'Frontend')
-back = Category.create!(title: 'Backend')
+front = Category.create(title: 'Frontend')
+back = Category.create(title: 'Backend')
 ml = Category.create(title: 'Machine Learning')
 gi = Category.create(title: 'General issues')
 
