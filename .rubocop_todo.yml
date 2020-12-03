@@ -23,13 +23,7 @@ Metrics/PerceivedComplexity:
 
 # Offense count: 4
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/helpers/application_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
-    - 'config/application.rb'
+  Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -43,3 +37,6 @@ Style/IfUnlessModifier:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 198
+
+Metrics/BlockLength:
+  Enabled: false
