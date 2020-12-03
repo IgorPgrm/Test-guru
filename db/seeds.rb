@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -19,12 +20,12 @@ test4 = Test.create(title: 'Тест4 Общие вопросы', level: 5, cate
 test5 = Test.create(title: 'Тест5 HTML', level: 5, category_id: front.id)
 test6 = Test.create(title: 'Тест6 CSS', level: 5, category_id: front.id)
 
-quest1 = Question.create(body:'Тег <br> в HTML означает:', tests_id: test1.id)
-quest2 = Question.create(body:'Ruby это', tests_id: test2.id)
-quest3 = Question.create(body:'Какой вид обучения не применяется в ML', tests_id: test3.id)
-quest4 = Question.create(body:'Какой тип данных, указывает на число с плавающей запятой', tests_id: test4.id)
-quest5 = Question.create(body:'Тег <ruby> в HTML означает:', tests_id: test5.id)
-quest6 = Question.create(body:'Значение square в list-style-type означает', tests_id: test6.id)
+quest1 = Question.create(body: 'Тег <br> в HTML означает:', tests_id: test1.id)
+quest2 = Question.create(body: 'Ruby это', tests_id: test2.id)
+quest3 = Question.create(body: 'Какой вид обучения не применяется в ML', tests_id: test3.id)
+quest4 = Question.create(body: 'Какой тип данных, указывает на число с плавающей запятой', tests_id: test4.id)
+quest5 = Question.create(body: 'Тег <ruby> в HTML означает:', tests_id: test5.id)
+quest6 = Question.create(body: 'Значение square в list-style-type означает', tests_id: test6.id)
 
 Answer.create(body: 'Создаёт гипертекстовые ссылки.', correct: false, questions_id: quest1.id)
 Answer.create(body: 'Задает полужирное начертание отрывка текста.', correct: false, questions_id: quest1.id)
