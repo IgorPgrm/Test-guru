@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
+  has_many :questions
   has_many :user_tests
   has_many :users, through: :user_tests
   belongs_to :category
