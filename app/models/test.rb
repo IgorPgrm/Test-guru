@@ -8,7 +8,7 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   validates :title, presence: true, uniqueness: true
-  validates :level, numericality: { greater_than: 0, less_than_or_equal_to: 5 }
+  validates :level, numericality: { in: 0..5 }
 
   def self.show_by_category(category)
     Test.joins(:category).where('categories.title = ?', category).order('tests.title DESC')
