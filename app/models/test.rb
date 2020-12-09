@@ -13,10 +13,7 @@ class Test < ApplicationRecord
   scope :simple_tests, -> {select_test_by_lvl(0..1)}
   scope :middle_tests, -> {select_test_by_lvl(2..4)}
   scope :hard_tests, -> {select_test_by_lvl(2..Float::INFINITY)}
-
-  def self.show_by_category(category)
-    Test.joins(:category).where('categories.title = ?', category).order('tests.title DESC')
-  end
+  scope :show_by_category, -> (category){ joins(:category).where('categories.title = ?', category).order('tests.title DESC')}
 
   private
 

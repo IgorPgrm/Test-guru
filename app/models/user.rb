@@ -9,7 +9,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true
 
-  def list_of_tests(level = 0)
-    Test.joins(:user_tests).where('user_id = ? and level= ?', id, level)
-  end
+  scope :list_of_tests, -> (level = 0, id){ joins(:user_tests).where('user_id = ? and level= ?', id, level)}
 end
