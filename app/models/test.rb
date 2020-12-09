@@ -7,8 +7,9 @@ class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: 'User'
 
-  validates :title, presence: true, uniqueness: true
-  validates :level, numericality: { greater_than: 0, less_than_or_equal_to: 5 }
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true }
+  validates :title, uniqueness: {scope: :level}
 
   scope :simple_tests, -> {select_test_by_lvl(0..1)}
   scope :middle_tests, -> {select_test_by_lvl(2..4)}
