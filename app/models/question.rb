@@ -5,7 +5,7 @@ class Question < ApplicationRecord
   has_many :answers
 
   validates :body, presence: true
-  validate :answers_counter
+  validate :answers_counter, on: :create
 
   private
 
