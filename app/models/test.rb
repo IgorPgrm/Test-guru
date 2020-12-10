@@ -7,7 +7,18 @@ class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: 'User'
 
-  def self.show_by_category(category)
-    Test.joins(:category).where('categories.title = ?', category).order('tests.title DESC')
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true }
+  validates :title, uniqueness: {scope: :level}
+
+  scope :simple_tests, -> { where(level: 0..1 ) }
+  scope :middle_tests, -> { where(level: 2..4 ) }
+  scope :hard_tests, -> { where(level: 5..Float::INFINITY) }
+  scope :show_by_category, -> (category){ joins(:category).where('categories.title = ?', category)}
+
+  private
+
+  def self.show_sort_category(category)
+    show_by_category(category).order('tests.title DESC').pluck(:title)
   end
 end
