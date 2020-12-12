@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get '/tests/:id/start', to: 'tests#start'
 
+  get '/tests/:id/questions', to: 'tests#show'
+
   get '/search/:category/:title', to: 'tests#search'
 
   get '/questions', to: 'questions#index'
