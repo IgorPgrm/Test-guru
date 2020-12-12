@@ -1,1 +1,23 @@
-
+<div style="width: 10%; margin: 0 auto; text-align: center;">
+<table border="1" width="400">
+  <caption>Tests:</caption>
+  <tr>
+    <th>
+      ID
+    </th>
+    <th>
+      Title
+    </th>
+  </tr>
+  <% @tests.each do |t| %>
+  <tr>
+    <td>
+      <%= t.id %>
+    </td>
+    <td>
+      <%= link_to t.title, t %>
+    </td>
+  </tr>
+    <% end %>
+</table>
+</div>

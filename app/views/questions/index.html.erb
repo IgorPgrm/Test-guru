@@ -1,2 +1,27 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<h2>Question list</h2>
+
+<table border="1" width="600">
+  <tr>
+    <th>ID</th>
+    <th>Body</th>
+    <th>Test ID</th>
+    <th>Title</th>
+  </tr>
+  <% @questions.each do |q| %>
+    <tr>
+      <td>
+        <%= q.id %>
+      </td>
+      <td>
+        <%= link_to q.body, q %>
+      </td>
+      <td>
+        <%= q.test_id %>
+      </td>
+      <td>
+        <%= link_to q.test.title, q.test %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</li>

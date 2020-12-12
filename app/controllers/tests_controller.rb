@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   after_action :send_log_message
 
   def index
-    render plain: Test.all.inspect
+    @tests = Test.all
   end
 
   def new
@@ -12,8 +12,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    title = Test.first.title
-    render inline: '<%= @test.title %>'
+
   end
 
   def create

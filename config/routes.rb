@@ -14,8 +14,11 @@ Rails.application.routes.draw do
 
   get '/search/:category/:title', to: 'tests#search'
 
+  get '/questions', to: 'questions#index'
+
+  post '/questions', to: 'questions#create'
+
   resources :tests do
     resources :questions, shallow: true
   end
-
 end
