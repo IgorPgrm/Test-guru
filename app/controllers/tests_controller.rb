@@ -1,4 +1,8 @@
 class TestsController < ApplicationController
+  before_action :find_test, only: %i[show]
+  around_action :log_execute_time
+  after_action :send_log_message
+
   def index
     render plain: Test.all.inspect
   end
@@ -8,7 +12,8 @@ class TestsController < ApplicationController
   end
 
   def show
-    redirect_to root_path
+    title = Test.first.title
+    render inline: '<%= @test.title %>'
   end
 
   def create
@@ -24,5 +29,20 @@ class TestsController < ApplicationController
   private
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
+  end
+
+  def find_test
+    @test = Test.find(params[:id])
+  end
+
+  def send_log_message
+    logger.info("Action [#{action_name}] was finished")
+  end
+
+  def log_execute_time
+    start = Time.now
+    yield
+    finish = Time.now - start
+    logger.info("Execution time: #{finish*1000}ms")
   end
 end
