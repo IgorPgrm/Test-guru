@@ -1,6 +1,6 @@
 <h1>Create New Question</h1>
 
-<form action="/questions" method="post">
+<form action="<%= test_questions_path %>" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <p>
     <label for="question-body">Body:</label>
@@ -8,7 +8,10 @@
   </p><br>
   <p>
     <label for="question-test-id">Test id:</label>
-    <input type="text" name="question[test_id]" id="question-test-id">
+    <input type="text" name="question[test_id]" id="question-test-id"
+    <% if params[:test_id].present? %>
+       value="<%= params[:test_id] %>">
+      <% end %>
   </p><br>
 
   <input type="submit" value="Create">

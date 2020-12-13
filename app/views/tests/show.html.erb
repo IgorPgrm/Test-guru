@@ -20,3 +20,8 @@
   <% end %>
 </table>
 </div>
+
+<div>
+  <%= link_to "Create New Question for Test #{@test.id}", new_test_question_path(@test) %>
+  <%= link_to 'Create New Test', new_test_path %>
+</div>

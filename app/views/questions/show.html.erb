@@ -2,3 +2,8 @@
 <p><%=@question.body %></p>
 
 <p>Test: <%=@question.test.title %></p>
+
+<div>
+  <%= link_to 'New Question for Test', new_test_question_path(@question.test_id) %>
+  <%= link_to 'Delete Question', question_path(@question), method: :delete, data: {confirm: 'You are sure?' }%>
+</div>

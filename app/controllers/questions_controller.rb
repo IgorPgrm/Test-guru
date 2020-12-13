@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show]
+  before_action :find_question, only: %i[show destroy]
   def index
     @questions = Question.all
   end
 
   def new
+    @question = Question.create(test_id: params[:test_id])
   end
 
   def show
@@ -13,7 +14,8 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(quest_params)
-    redirect_to quest_params
+    @question.save!
+    redirect_to question_path(@question.id)
     #render plain: question.inspect
   end
 
@@ -21,6 +23,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @question.destroy
+    redirect_to tests_path
   end
 
   private
