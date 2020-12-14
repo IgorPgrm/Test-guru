@@ -3,6 +3,8 @@ class TestsController < ApplicationController
   around_action :log_execute_time
   after_action :send_log_message
 
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_record_not_found
+
   def index
     @tests = Test.all
   end

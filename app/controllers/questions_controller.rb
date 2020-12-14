@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_record_not_found
+
   def index
     @questions = Question.all
   end
@@ -36,4 +39,5 @@ class QuestionsController < ApplicationController
   def find_question
     @question = Question.find(params[:id])
   end
+
 end
