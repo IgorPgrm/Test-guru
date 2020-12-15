@@ -17,11 +17,8 @@
     <td>
       <%= link_to t.title, t %>
     </td>
+  <% end %>
   </tr>
-    <% end %>
 </table>
-</div>
-
-<div>
-  <%= link_to 'Create new Test', new_test_path %>
+  <%= button_to 'Create new Test', new_test_path %>
 </div>

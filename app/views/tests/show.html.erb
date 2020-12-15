@@ -18,10 +18,13 @@
     </td>
   </tr>
   <% end %>
+  <tr>
+    <td>
+      <%= button_to 'Create New Test', new_test_path, method: :get %>
+    </td>
+    <td>
+      <%= button_to "Create New Question for Test #{@test.id}", new_test_question_path(@test), method: :get %>
+    </td>
+  </tr>
 </table>
-</div>
-
-<div>
-  <%= link_to "Create New Question for Test #{@test.id}", new_test_question_path(@test) %>
-  <%= link_to 'Create New Test', new_test_path %>
 </div>
