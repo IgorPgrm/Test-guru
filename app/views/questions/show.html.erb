@@ -1,0 +1,9 @@
+<h2>Question ID:<%= @question.id %></h2>
+<p><%=@question.body %></p>
+
+<p>Test: <%=@question.test.title %></p>
+
+<div>
+  <%= button_to 'New Question for Test', new_test_question_path(@question.test_id), method: :get %>
+  <%= button_to 'Delete Question', question_path(@question), method: :delete, data: {confirm: 'You are sure?' }%>
+</div>
