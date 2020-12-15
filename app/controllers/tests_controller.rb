@@ -10,7 +10,7 @@ class TestsController < ApplicationController
   end
 
   def new
-
+    @test = Test.new
   end
 
   def show
@@ -18,12 +18,12 @@ class TestsController < ApplicationController
   end
 
   def create
-    test = Test.create(test_params)
-    render plain: test.inspect
+    @test = Test.create(test_params)
+    render plain: @test.inspect
   end
 
   def search
-    result = ["Class:#{params.class}", "Parameters:#{params.inspect}"]
+    result = %W[Class:#{params.class} Parameters:#{params.inspect}]
     render plain: result.join("\n")
   end
 

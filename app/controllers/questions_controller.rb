@@ -1,14 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
-
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_record_not_found
+  before_action :find_test, only: :create
 
   def index
     @questions = Question.all
   end
 
   def new
-    @question = Question.create(test_id: params[:test_id])
+    @question = Question.new
   end
 
   def show
@@ -16,10 +15,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(quest_params)
-    @question.save!
-    redirect_to question_path(@question.id)
-    #render plain: question.inspect
+    @questions = @test.questions.new(quest_params)
+    if @questions.save
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
   def update
@@ -33,11 +34,15 @@ class QuestionsController < ApplicationController
   private
 
   def quest_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:questions).permit(:body)
   end
 
   def find_question
     @question = Question.find(params[:id])
+  end
+
+  def find_test
+    @test = Test.find(params[:test_id])
   end
 
 end
