@@ -1,0 +1,7 @@
+<h1>Edit Question</h1>
+
+<%= form_for :questions, url: question_path(@question), method: :patch do |f| %>
+  <%= f.label 'Text:' %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>

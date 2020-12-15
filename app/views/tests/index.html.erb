@@ -8,6 +8,9 @@
     <th>
       Title
     </th>
+    <th>
+      Level
+    </th>
   </tr>
   <% @tests.each do |t| %>
   <tr>
@@ -16,6 +19,9 @@
     </td>
     <td>
       <%= link_to t.title, t %>
+    </td>
+    <td>
+      <%= t.level %>
     </td>
   <% end %>
   </tr>

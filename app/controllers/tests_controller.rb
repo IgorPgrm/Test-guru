@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show]
+  before_action :find_test, only: %i[show edit update]
   around_action :log_execute_time
   after_action :send_log_message
 
@@ -9,6 +9,18 @@ class TestsController < ApplicationController
 
   def new
     @test = Test.new
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
   end
 
   def show
@@ -31,7 +43,7 @@ class TestsController < ApplicationController
 
   private
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:tests).permit(:title, :level, :category_id, :author_id)
   end
 
   def find_test
