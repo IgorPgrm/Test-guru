@@ -1,8 +1,4 @@
 <h1>Create New Question</h1>
 
-<%= form_for :questions, url: test_questions_path do |f| %>
-  <%= f.label 'Text:' %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
 
