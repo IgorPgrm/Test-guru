@@ -1,13 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: :create
+  before_action :find_test, only: %i[create index new]
 
   def index
-    @questions = Question.all
+    @questions = @test.questions
   end
 
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def show
@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     @questions = @test.questions.new(quest_params)
     if @questions.save
-      redirect_to @test
+      redirect_to @questions.test
     else
       render :new
     end
