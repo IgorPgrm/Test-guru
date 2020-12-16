@@ -5,6 +5,6 @@ module QuestionsHelper
     else
       @title = 'Edit'
     end
-    "#{@title} #{@test.title} Question"
+    "#{@title} #{@question.test.title} Question"
   end
 end

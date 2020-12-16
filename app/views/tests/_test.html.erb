@@ -10,7 +10,7 @@
       <th>Body: </th>
       <th>Edit</th>
     </tr>
-    <% Question.where(test_id: @test.id).each do |q|%>
+    <% @test.questions.each do |q|%>
       <tr>
         <td>
           <%= q.id %>
