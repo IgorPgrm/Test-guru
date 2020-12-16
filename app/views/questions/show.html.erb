@@ -1,7 +1,11 @@
 <h2>Question ID:<%= @question.id %></h2>
+<%= button_to "Back to Test #{@question.test.title}", test_path(@question.test), method: :get %>
+<%= button_to 'Test list', tests_path, method: :get %>
 <p><%=@question.body %></p>
 
 <p>Test: <%=@question.test.title %></p>
+<br>
+<%= render 'answer', source: @question.answers %>
 
 <div>
   <%= button_to 'New Question for Test', new_test_question_path(@question.test_id), method: :get %>

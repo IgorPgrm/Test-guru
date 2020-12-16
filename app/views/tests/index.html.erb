@@ -1,30 +1,30 @@
 <div style="width: 50%; margin: 0 auto; text-align: center;">
-<table border="1" width="400">
-  <caption>Tests:</caption>
-  <tr>
-    <th>
-      ID
-    </th>
-    <th>
-      Title
-    </th>
-    <th>
-      Level
-    </th>
-  </tr>
-  <% @tests.each do |t| %>
-  <tr>
-    <td>
-      <%= t.id %>
-    </td>
-    <td>
-      <%= link_to t.title, t %>
-    </td>
-    <td>
-      <%= t.level %>
-    </td>
-  <% end %>
-  </tr>
-</table>
+  <table border="1" width="400">
+    <caption>Tests:</caption>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Level
+      </th>
+    </tr>
+    <% @tests.each do |t| %>
+      <tr>
+        <td>
+          <%= t.id %>
+        </td>
+        <td>
+          <%= link_to t.title, t %>
+        </td>
+        <td>
+          <%= t.level %>
+        </td>
+    <% end %>
+    </tr>
+  </table>
   <%= button_to 'Create new Test', new_test_path, method: :get%>
 </div>
