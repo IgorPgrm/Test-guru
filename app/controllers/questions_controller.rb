@@ -10,13 +10,9 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new
   end
 
-  def show
+  def show; end
 
-  end
-
-  def edit
-
-  end
+  def edit; end
 
   def create
     @question = @test.questions.new(quest_params)

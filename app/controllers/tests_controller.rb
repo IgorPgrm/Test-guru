@@ -11,9 +11,7 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @test.update(test_params)
@@ -23,9 +21,7 @@ class TestsController < ApplicationController
     end
   end
 
-  def show
-
-  end
+  def show; end
 
   def create
     @test = Test.new(test_params)

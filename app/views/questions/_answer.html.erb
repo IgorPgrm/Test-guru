@@ -1,5 +1,5 @@
-<% unless source.nil? %>
-  <% source.each do |answers| %>
-    <p><%= answers.body %></p>
+<% unless answers.nil? %>
+  <% answers.each do |answer| %>
+    <p><%= answer.body %></p>
   <% end %>
 <% end %>

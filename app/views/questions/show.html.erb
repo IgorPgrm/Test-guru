@@ -5,7 +5,7 @@
 
 <p>Test: <%=@question.test.title %></p>
 <br>
-<%= render 'answer', source: @question.answers %>
+<%= render 'answer', answers: @question.answers %>
 
 <div>
   <%= button_to 'New Question for Test', new_test_question_path(@question.test_id), method: :get %>
