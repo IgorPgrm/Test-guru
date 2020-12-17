@@ -2,13 +2,14 @@
 <%= button_to 'Back to Tests List', tests_path, method: :get %>
 <p><%=@test.title %></p>
 <p>Level: <%= @test.level %></p>
+<%=button_to 'Start Test', start_test_path(@test) %>
 
 <div style="width: 50%; margin: 0 auto; text-align: center;">
   <table border="1">
     <tr>
       <th>Question ID:</th>
       <th>Body: </th>
-      <th>Edit</th>
+      <th>Action</th>
     </tr>
     <% @test.questions.each do |q|%>
       <tr>

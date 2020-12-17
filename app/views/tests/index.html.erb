@@ -12,6 +12,9 @@
       <th>
         Level
       </th>
+      <th>
+        Start
+      </th>
     </tr>
     <% @tests.each do |t| %>
       <tr>
@@ -27,6 +30,7 @@
         <td>
           <%= t.level %>
         </td>
+      <td><%=button_to 'Start', start_test_path(t) %></td>
     <% end %>
     </tr>
   </table>
