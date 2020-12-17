@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[create index new]
 
   def index
@@ -10,20 +10,25 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new
   end
 
-  def show
+  def show; end
 
-  end
+  def edit; end
 
   def create
-    @questions = @test.questions.new(quest_params)
-    if @questions.save
-      redirect_to @questions.test
+    @question = @test.questions.new(quest_params)
+    if @question.save
+      redirect_to @question.test
     else
       render :new
     end
   end
 
   def update
+    if @question.update(quest_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -34,7 +39,7 @@ class QuestionsController < ApplicationController
   private
 
   def quest_params
-    params.require(:questions).permit(:body)
+    params.require(:question).permit(:body)
   end
 
   def find_question
