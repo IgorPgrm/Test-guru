@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to @answer, notice: 'Answer was successfully created!'
     else
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer
+    redirect_to @answer.question
   end
 
   private
