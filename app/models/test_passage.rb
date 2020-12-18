@@ -4,13 +4,13 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
-  before_save :set_next_question
+  before_update :set_next_question
+  #before_save :set_next_question, on: [:accept!]
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-
     save!
   end
 
@@ -18,7 +18,12 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def percent
+    ( self.correct_questions.to_f / self.test.questions.count.to_f ) * 100
+  end
+
   private
+
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
   end

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :email, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true
 
   def list_of_tests(level = 0)
-    Test.joins(:user_tests).where('user_id = ? and level= ?', id, level)
+    Test.joins(:test_passages).where('user_id = ? and level= ?', id, level)
   end
 
   def test_passage(test)
