@@ -7,18 +7,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+user = User.create(first_name: 'System', last_name:'TestGuru', email: 'system@testguru.tg')
 front = Category.create(title: 'Frontend')
 back = Category.create(title: 'Backend')
 ml = Category.create(title: 'Machine Learning')
 gi = Category.create(title: 'General issues')
 
-test1 = Test.create(title: 'Тест1 HTML', level: 1, category_id: front.id)
-test2 = Test.create(title: 'Тест2 Ruby', level: 2, category_id: back.id)
-test3 = Test.create(title: 'Тест3 Machine Learning', level: 3, category_id: ml.id)
-test4 = Test.create(title: 'Тест4 Общие вопросы', level: 5, category_id: gi.id)
-test5 = Test.create(title: 'Тест5 HTML', level: 5, category_id: front.id)
-test6 = Test.create(title: 'Тест6 CSS', level: 5, category_id: front.id)
+test1 = Test.create(title: 'Тест1 HTML', level: 1, category_id: front.id, author_id: user.id)
+test2 = Test.create(title: 'Тест2 Ruby', level: 2, category_id: back.id, author_id: user.id)
+test3 = Test.create(title: 'Тест3 Machine Learning', level: 3, category_id: ml.id, author_id: user.id)
+test4 = Test.create(title: 'Тест4 Общие вопросы', level: 5, category_id: gi.id, author_id: user.id)
+test5 = Test.create(title: 'Тест5 HTML', level: 5, category_id: front.id, author_id: user.id)
+test6 = Test.create(title: 'Тест6 CSS', level: 5, category_id: front.id, author_id: user.id)
 
 quest1 = Question.create(body: 'Тег <br> в HTML означает:', test_id: test1.id)
 quest2 = Question.create(body: 'Ruby это', test_id: test2.id)
