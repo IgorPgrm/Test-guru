@@ -24,11 +24,15 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    self.test.questions.count - Question.remainder_question_count(self.current_question)
+    self.test.questions.count - self.remainder_question_count(self.current_question)
   end
 
   def success?
    self.percent >= SUCCESS_PERCENT
+  end
+
+  def remainder_question_count(question)
+    self.test.questions.where('id > ?', question.id).count
   end
 
   private
