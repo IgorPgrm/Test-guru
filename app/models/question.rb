@@ -7,6 +7,10 @@ class Question < ApplicationRecord
   validates :body, presence: true
   validate :answers_counter, on: :create
 
+  def self.remainder_question_count(question)
+    question.test.questions.where('id > ?', question.id).count
+  end
+
   private
 
   def answers_counter
