@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'session/new'
   get 'users/new'
   get :signup, to: 'users#new'
+  get :login, to: 'session#new'
   root to: 'tests#index'
 
   resources :users, only: :create
+  resources :session, only: :create
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
