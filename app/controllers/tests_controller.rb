@@ -1,7 +1,6 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show edit update]
-  around_action :log_execute_time
-  after_action :send_log_message
+  before_action :find_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: :start
 
   def index
     @tests = Test.all
@@ -9,6 +8,11 @@ class TestsController < ApplicationController
 
   def new
     @test = Test.new
+  end
+
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
   end
 
   def edit; end
@@ -46,14 +50,8 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
-  def send_log_message
-    logger.info("Action [#{action_name}] was finished")
+  def set_user
+    @user = User.first
   end
 
-  def log_execute_time
-    start = Time.now
-    yield
-    finish = Time.now - start
-    logger.info("Execution time: #{finish*1000}ms")
-  end
 end
