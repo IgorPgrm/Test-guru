@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'users/new'
+  get :signup, to: 'users#new'
   root to: 'tests#index'
+
+  resources :users, only: :create
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
