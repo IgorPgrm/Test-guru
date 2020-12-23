@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'session/new'
   get 'users/new'
   get :signup, to: 'users#new'
+  get :logout, to: 'session#destroy'
   get :login, to: 'session#new'
   root to: 'tests#index'
 

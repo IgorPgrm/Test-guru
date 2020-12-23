@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_record_not_found
 
-  helper_method :current_user
+  helper_method :current_user, :logged_in?
 
   private
 
@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      redirect_to login_path
+      cookies[:redirect_path] = request.path
+      redirect_to login_path, alert: 'Are you a Guru? Verify your e-mail and password please'
     end
   end
 
