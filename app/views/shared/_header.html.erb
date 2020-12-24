@@ -7,11 +7,11 @@
       <%= link_to 'Contacts', "/about/author" %>
     </li>
     <li class="account">
-      <% if session[:user_id].present? %>
+      <% if user_signed_in? %>
       <%= link_to 'LogOut', destroy_user_session_path, method: :delete %>
         <% else %>
       <%= link_to 'Login', new_user_session_path %> |
-        <%= link_to 'SignUp', user_session_path  %>
+        <%= link_to 'SignUp',  new_user_registration_path %>
       <% end %>
     </li>
   </ul>

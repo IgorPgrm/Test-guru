@@ -51,7 +51,6 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
                   :confirmation_sent_at, :unconfirmed_email)
 
     add_column :users, :password_digest, :string
-    remove_index(:user, :email)
     change_column_default(:users, :email, nil)
   end
 end

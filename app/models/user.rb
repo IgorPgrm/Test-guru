@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :registerable,
          :recoverable,
          :rememberable,
+         :confirmable,
          :validatable
 
   has_many :authored_tests, foreign_key: "author_id", class_name: "Test"
