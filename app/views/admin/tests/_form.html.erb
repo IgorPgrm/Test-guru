@@ -9,8 +9,5 @@
   <%= f.label :category_id %>
   <%= f.collection_select :category_id, Category.order(:title), :id, :title%>
   <br>
-  <%= f.label :author_id %>
-  <%= f.text_field :author_id %>
-  <br>
   <%= f.submit %>
 <% end %>
