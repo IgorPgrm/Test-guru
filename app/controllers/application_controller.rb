@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    resource.is_a?(Admin) ? admin_tests_path : tests_path
+    if resource.is_a?(Admin)
+      admin_tests_path
+    else
+      flash[:notice] = "Hello! #{current_user.first_name} #{current_user.last_name}!"
+      tests_path
+    end
   end
 
   def rescue_record_not_found
