@@ -1,6 +1,7 @@
 
 class TestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :show_flash, only: :index
   before_action :find_test, only: %i[start]
 
   def index
@@ -17,6 +18,10 @@ class TestsController < ApplicationController
   end
 
   private
+
+  def show_flash
+    flash.now[:danger] = "Hello! #{current_user.first_name} #{current_user.last_name}!"
+  end
 
   def find_test
     @test = Test.find(params[:id])

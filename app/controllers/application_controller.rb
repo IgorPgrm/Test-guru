@@ -3,8 +3,6 @@
 class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_record_not_found
 
-
-
   private
 
   def after_sign_in_path_for(resource)
