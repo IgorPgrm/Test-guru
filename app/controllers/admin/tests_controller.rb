@@ -11,11 +11,6 @@ class Admin::TestsController < Admin::BaseController
     @test = Test.new
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   def edit; end
 
   def update
@@ -37,14 +32,9 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
-  def search
-    result = %W[Class:#{params.class} Parameters:#{params.inspect}]
-    render plain: result.join("\n")
-  end
-
   private
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_test
