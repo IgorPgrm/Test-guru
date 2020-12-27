@@ -8,6 +8,10 @@ en:
       test:
         create: "Create Test"
         update: "Update Test"
+
+      test_passage:
+        create: "Next"
+
     label:
       test:
         title: "Title"
@@ -21,6 +25,17 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+      result: "Result"
+      success: "Success"
+      fail: "Fail"
+      count_question: "Questions count"
+      correctly: "You answered correctly"
+      percent: "Percent"
+      list: "Tests List"
+
+    show:
+      title: "Pass the %{test_title}. Pass: %{question_counter}"
+      total: "Total:"
 
   admin:
     tests:
@@ -34,6 +49,14 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+    header:
+      tests: "All Tests"
+      about: "About Project"
+      contacts: "Contacts"
+      logout: "LogOut"
+      login: "LogIn"
+      signup: "SignUp"
 
   tests_mailer:
     completed_test:

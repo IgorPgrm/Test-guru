@@ -3,12 +3,16 @@ ru:
   Start: "Начать"
   Edit: "Редактировать"
   Edit_Test: "Редактировать Тест"
+  Action: "Действие"
+  List: "Список"
 
   helpers:
     submit:
       test:
         create: "Создать Тест"
         update: "Обновить Тест"
+      test_passage:
+        create: "Дальше"
 
     label:
       test:
@@ -20,9 +24,26 @@ ru:
     index:
       header: "Доступные тесты"
 
+  questions:
+    header: "Вопросы"
+    body: "Текст вопроса:"
+
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      header: "Тест %{title} закончен"
+      result: "Результат"
+      success: "Успех"
+      fail: "Не пройден"
+      count_question: "Количество вопросов"
+      correctly: "Вы ответили правильно на"
+      percent: "Процент успешных"
+      list: "Список тестов"
+
+
+    show:
+      title: "Проходим %{test_title}. Пройдено %{question_counter}"
+      total: "Всего:"
+
 
   admin:
     tests:
@@ -38,6 +59,13 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    header:
+      tests: "Все тесты"
+      about: "О проекте"
+      contacts: "Контакты"
+      logout: "Выход"
+      login: "Войти"
+      signup: "Зарегистрироваться"
 
   devise:
     failure:

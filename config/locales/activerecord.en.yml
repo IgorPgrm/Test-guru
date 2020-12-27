@@ -5,7 +5,8 @@ en:
 
     attributes:
       test:
-        title: "Название"
+        title: "Title"
+        level: "Level"
 
     errors:
       messages:
