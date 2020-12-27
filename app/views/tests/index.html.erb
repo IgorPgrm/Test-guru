@@ -22,7 +22,7 @@
           <%= t.id %>
         </td>
         <td>
-          <%= link_to t.title, t %>
+          <%= t.title %>
         </td>
         <td>
           <%= t.questions.count %>
@@ -34,5 +34,4 @@
     <% end %>
     </tr>
   </table>
-  <%= button_to 'Create new Test', new_test_path, method: :get%>
 </div>
