@@ -5,6 +5,11 @@ ru:
   Edit_Test: "Редактировать Тест"
   Action: "Действие"
   List: "Список"
+  Question: "Вопрос"
+  Answer: "Ответ"
+  Text: "Текст"
+  Create: "Создать"
+  Delete: "Удалить"
 
   helpers:
     submit:
@@ -13,6 +18,8 @@ ru:
         update: "Обновить Тест"
       test_passage:
         create: "Дальше"
+
+    sure: "Вы уверены?"
 
     label:
       test:
@@ -51,6 +58,18 @@ ru:
         header: "Доступные тесты"
       create:
         success: "Тест успешно создан."
+      test:
+        id: "Идентификатор"
+        question_id: "ID Вопроса"
+        body: "Текст"
+        edit: "Редактировать"
+        create_test: "+Новый тест"
+        create_question: "+Новый вопрос для теста %{id}"
+
+    questions:
+      show:
+        answer_variant: "Добавить вариант ответа"
+
 
   shared:
     errors:
@@ -66,8 +85,3 @@ ru:
       logout: "Выход"
       login: "Войти"
       signup: "Зарегистрироваться"
-
-  devise:
-    failure:
-      user:
-        unauthenticated: "Для просмотра необходимо авторизоваться или зарегистрироваться"

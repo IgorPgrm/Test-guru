@@ -2,6 +2,14 @@ en:
   Back: "Back"
   Start: "Start"
   Edit: "Edit"
+  Edit_Test: "Редактировать Тест"
+  Action: "Action"
+  List: "List"
+  Question: "Question"
+  Answer: "Answer"
+  Text: "Text"
+  Create: "Create"
+  Delete: "Delete"
 
   helpers:
     submit:
@@ -11,6 +19,8 @@ en:
 
       test_passage:
         create: "Next"
+
+    sure: "Are you sure?"
 
     label:
       test:
@@ -43,6 +53,13 @@ en:
         header: "Tricky Tests"
       create:
         success: "Test was cuccessfuly created"
+      test:
+        id: "ID"
+        question_id: "ID Question"
+        body: "Body"
+        edit: "Edit"
+        create_test: "+Create New test"
+        create_question: "+New Question for test %{id}"
 
   shared:
     errors:
