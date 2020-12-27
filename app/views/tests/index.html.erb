@@ -1,6 +1,6 @@
 <div style="width: 50%; margin: 0 auto; text-align: center;">
   <table border="1" width="400">
-    <caption>Tests:</caption>
+    <caption><h2><%= t('tests.index.header') %></h2></caption>
     <tr>
       <th>
         ID
@@ -30,7 +30,7 @@
         <td>
           <%= t.level %>
         </td>
-      <td><%=button_to 'Start', start_test_path(t) %></td>
+      <td><%= button_to t('Start'), start_test_path(t) %></td>
     <% end %>
     </tr>
   </table>

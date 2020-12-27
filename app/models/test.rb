@@ -8,7 +8,7 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   validates :title, presence: true
-  validates :level, numericality: { only_integer: true }
+  validates :level, numericality: { greater_than_or_equal_to: 0 }
   validates :title, uniqueness: {scope: :level}
 
   scope :simple_tests, -> { where(level: 0..1 ) }

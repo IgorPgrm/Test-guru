@@ -1,8 +1,8 @@
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<h1>The <%= @test_passage.test.title %></h1>
 <p><h2>
   <% if @test_passage.success? %>
     <% color = "green" %>
-    <%= "Congratulations Test passed successfully!" %></p>
+    <%= t('.header', title: @test_passage.test.title ) %></p>
   <% else %>
     <% color = "red" %>
     <%= "Test failed!" %>
