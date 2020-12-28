@@ -68,7 +68,7 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
-    header:
+    nav:
       tests: "All Tests"
       about: "About Project"
       contacts: "Contacts"

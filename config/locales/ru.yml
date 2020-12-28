@@ -84,7 +84,7 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
-    header:
+    nav:
       tests: "Все тесты"
       about: "О проекте"
       contacts: "Контакты"
