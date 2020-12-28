@@ -45,7 +45,7 @@ en:
       list: "Tests List"
 
     show:
-      title: "Pass the %{test_title}. Pass: %{question_counter}"
+      title: "Pass the %{test_title}."
       total: "Total:"
 
   admin:

@@ -53,7 +53,7 @@ ru:
 
 
     show:
-      title: "Проходим %{test_title}. Пройдено %{question_counter}"
+      title: "Проходим %{test_title}."
       total: "Всего:"
 
 
