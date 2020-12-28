@@ -70,6 +70,7 @@ ru:
         edit: "Редактировать"
         create_test: "+Новый тест"
         create_question: "+Новый вопрос для теста %{id}"
+        delete: "Удалить"
 
     questions:
       show:

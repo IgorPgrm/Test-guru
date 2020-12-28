@@ -61,6 +61,7 @@ en:
         edit: "Edit"
         create_test: "+Create New test"
         create_question: "+New Question for test %{id}"
+        delete: "Delete"
 
   shared:
     errors:
