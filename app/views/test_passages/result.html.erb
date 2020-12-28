@@ -1,24 +1,19 @@
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<h1><%= t('.header', title: @test_passage.test.title ) %></h1>
 <p><h2>
   <% if @test_passage.success? %>
     <% color = "green" %>
-    <%= "Congratulations Test passed successfully!" %></p>
+  <%= t('.success') %>
   <% else %>
     <% color = "red" %>
-    <%= "Test failed!" %>
+  <%= t('.result') %>:
+  <%= t('.fail') %>
   <% end %>
   </h2></p>
 
 <table width="400" border="1">
-    <th>
-      Test questions
-    </th>
-  <th>
-    You answered correctly
-  </th>
-  <th>
-    Percent
-  </th>
+    <th><%= t('.count_question') %></th>
+  <th><%= t('.correctly') %></th>
+  <th><%= t('.percent') %></th>
 <tr>
   <td><%= @test_passage.test.questions.count %></td>
   <td><%= @test_passage.correct_questions %></td>
@@ -26,4 +21,4 @@
 </tr>
 </table>
 <br>
-<%= button_to 'Test List', tests_path, method: :get %>
+<%= button_to t('.list'), tests_path, method: :get %>

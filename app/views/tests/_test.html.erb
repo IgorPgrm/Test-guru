@@ -1,7 +1,7 @@
-<h2>Test ID:<%= @test.id %></h2>
+<h2><%= t('tests.index.header') %></h2>
 <%= button_to 'Back to Tests List', tests_path, method: :get %>
-<p><%=@test.title %></p>
-<p>Level: <%= @test.level %></p>
+<p><%= @test.title %></p>
+<p><%= t('label.test.level') %> : <%= @test.level %></p>
 <%=button_to 'Start Test', start_test_path(@test) %>
 
 <div style="width: 50%; margin: 0 auto; text-align: center;">

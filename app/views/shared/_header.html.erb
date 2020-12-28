@@ -2,16 +2,16 @@
   <ul class="nav__links">
     <%= link_to 'TestGuru', root_path %>
     <li>
-      <%= link_to 'Tests', tests_path %>
-      <%= link_to 'About', "/about" %>
-      <%= link_to 'Contacts', "/about/author" %>
+      <%= link_to t('.tests'), tests_path %>
+      <%= link_to t('.about'), "/about" %>
+      <%= link_to t('.contacts'), "/about/author" %>
     </li>
     <li class="account">
       <% if user_signed_in? %>
-      <%= link_to 'LogOut', destroy_user_session_path, method: :delete %>
+      <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
         <% else %>
-      <%= link_to 'Login', new_user_session_path %> |
-        <%= link_to 'SignUp',  new_user_registration_path %>
+      <%= link_to t('.login'), new_user_session_path %> |
+        <%= link_to t('.signup'),  new_user_registration_path %>
       <% end %>
     </li>
   </ul>

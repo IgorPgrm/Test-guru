@@ -1,14 +1,14 @@
-<h2>Test ID:<%= @test.id %></h2>
-<%= button_to 'Back to Tests List', admin_tests_path, method: :get %>
+<h2><%= t('.id') %>: <%= @test.id %></h2>
+<%= button_to t('test_passages.result.list'), admin_tests_path, method: :get %>
 <p><%= @test.title %></p>
-<p>Level: <%= @test.level %></p>
+<p><%= t('helpers.label.test.level') %>: <%= @test.level %></p>
 
 <div style="width: 50%; margin: 0 auto; text-align: center;">
   <table border="1">
     <tr>
-      <th>Question ID:</th>
-      <th>Body: </th>
-      <th>Action</th>
+      <th><%= t('.question_id') %></th>
+      <th><%= t('.body') %></th>
+      <th><%= t('Action') %></th>
     </tr>
     <% @test.questions.each do |q|%>
       <tr>
@@ -18,21 +18,21 @@
         <td>
           <%= link_to q.body, q %>
         </td>
-        <td><%= button_to 'Edit', edit_question_path(q), method: :get %></td>
+        <td><%= button_to t('.edit'), edit_question_path(q), method: :get %></td>
       </tr>
     <% end %>
     <tr>
       <td>
-        <%= button_to 'Create New Test', new_admin_test_path, method: :get %>
+        <%= button_to t('.create_test'), new_admin_test_path, method: :get %>
       </td>
       <td>
-        <%= button_to "Create New Question for Test #{@test.id}", new_test_question_path(@test), method: :get %>
+        <%= button_to t('.create_question', id: @test.id), new_test_question_path(@test), method: :get %>
       </td>
     </tr>
   </table>
 </div>
 
 <div>
-  <%= button_to 'Edit Test', edit_admin_test_path(@test), method: :get %>
-  <%= button_to 'Back', admin_test_path, method: :get  %>
+  <%= button_to t('.edit'), edit_admin_test_path(@test), method: :get %>
+  <%= button_to t('test_passages.result.list'), admin_test_path, method: :get  %>
 </div>

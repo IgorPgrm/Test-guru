@@ -1,17 +1,17 @@
 <h2>Question ID:<%= @question.id %></h2>
-<%= button_to "Back to Test #{@question.test.title}", admin_test_path(@question.test), method: :get %>
-<%= button_to 'Test list', tests_path, method: :get %>
+<%= button_to "#{t('Back')} #{@question.test.title}", admin_test_path(@question.test), method: :get %>
+<%= button_to t('test_passages.result.list'), tests_path, method: :get %>
 <p><%=@question.body %></p>
 
 <p>Test: <%=@question.test.title %></p>
 <br>
-<%= link_to '+New Answer', new_question_answer_path(@question) %>
+<%= link_to t('admin.questions.show.answer_variant'), new_question_answer_path(@question) %>
 <br>
 <%= render @question.answers %>
 
 <div>
-  <%= button_to 'New Question for Test', new_test_question_path(@question.test_id), method: :get %>
-  <%= button_to 'Delete Question', question_path(@question), method: :delete, data: {confirm: 'You are sure?' }%>
+  <%= button_to t('admin.tests.test.create_question', id: @question.test_id), new_test_question_path(@question.test_id), method: :get %>
+  <%= button_to "#{t('Delete')} #{t('Question')}", question_path(@question), method: :delete, data: {confirm: t('helpers.sure') }%>
 </div>
 
-<%= link_to 'Back', admin_test_path(@question.test) %>
+<%= link_to t('Back'), admin_test_path(@question.test) %>
