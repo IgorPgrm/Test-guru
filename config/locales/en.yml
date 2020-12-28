@@ -16,11 +16,10 @@ en:
       test:
         create: "Create Test"
         update: "Update Test"
-    select:
-      prompt: "Please select category"
-
       test_passage:
         create: "Next"
+    select:
+      prompt: "Please select category"
 
     sure: "Are you sure?"
 
