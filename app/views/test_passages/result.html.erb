@@ -1,24 +1,26 @@
-<h1><%= t('.header', title: @test_passage.test.title ) %></h1>
-<p><h2>
-  <% if @test_passage.success? %>
-    <% color = "green" %>
-  <%= t('.success') %>
-  <% else %>
-    <% color = "red" %>
-  <%= t('.result') %>:
-  <%= t('.fail') %>
-  <% end %>
-  </h2></p>
-
-<table width="400" border="1">
+<div class="jumbotron">
+  <h1 class="display-4"><%= t('.header', title: @test_passage.test.title ) %></h1>
+  <p class="lead">
+    <%= t('.result') %>:
+    <% if @test_passage.success? %>
+      <span class="badge badge-success"><%= t('.success') %></span>
+    <% else %>
+      <span class="badge badge-danger"><%= t('.fail') %></span>
+    <% end %>
+  </p>
+  <p>
+  <table width="400" border="2">
     <th><%= t('.count_question') %></th>
-  <th><%= t('.correctly') %></th>
-  <th><%= t('.percent') %></th>
-<tr>
-  <td><%= @test_passage.test.questions.count %></td>
-  <td><%= @test_passage.correct_questions %></td>
-  <td bgcolor="<%= color %>" text><font color="white"><%= @test_passage.percent %>%</td>
-</tr>
-</table>
-<br>
-<%= button_to t('.list'), tests_path, method: :get %>
+    <th><%= t('.correctly') %></th>
+    <th><%= t('.percent') %></th>
+    <tr>
+      <td><%= @test_passage.test.questions.count %></td>
+      <td><%= @test_passage.correct_questions %></td>
+      <td><%= @test_passage.percent %>%</td>
+    </tr>
+  </table>
+  </p>
+  <p class="lead">
+    <%= button_to t('.list'), tests_path, class:'btn btn-primary btn-lg', method: :get %>
+  </p>
+</div>

@@ -1,38 +1,43 @@
-<h2><%= t('.id') %>: <%= @test.id %></h2>
-<%= button_to t('test_passages.result.list'), admin_tests_path, method: :get %>
+<div class="jumbotron">
+  <p class="lead">
+    <%= link_to t('test_passages.result.list'), admin_tests_path, role: "button", class: 'btn btn-success'%>
+    <%= link_to t('.create_test'), new_admin_test_path, role: "button", class: 'btn btn-primary' %>
+  </p>
+
+  <button type="button" class="btn btn-primary"><%= @test.title %>
+    <span class="badge badge-light"><%= "#{t('.id')}: #{@test.id}" %></span>
+  </button>
+  <%= link_to t('.edit'), edit_admin_test_path(@test),role: "button", class: 'btn btn-outline-info' %>
+
+  <hr class="my-4">
+  <div class="card-group border-success">
+    <% @test.questions.each do |q|%>
+      <div class="card-body col-3">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-header"><%= q.id %></div>
+          <div class="card-body">
+            <h5 class="card-title"><%= q.body %></h5>
+            <p class="card-text"><%= link_to t('.edit'), edit_question_path(q), role: "button", class:'btn btn-warning' %>
+              <%= link_to t('.delete'), question_path(q), method: :delete, role: "button", class:'btn btn-danger' %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <p class="lead">
+    <%= link_to t('.create_question', id: @test.id), new_test_question_path(@test), role: "button", class: 'btn btn-outline-dark' %>
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
 <p><%= @test.title %></p>
 <p><%= t('helpers.label.test.level') %>: <%= @test.level %></p>
 
-<div style="width: 50%; margin: 0 auto; text-align: center;">
-  <table border="1">
-    <tr>
-      <th><%= t('.question_id') %></th>
-      <th><%= t('.body') %></th>
-      <th><%= t('Action') %></th>
-    </tr>
-    <% @test.questions.each do |q|%>
-      <tr>
-        <td>
-          <%= q.id %>
-        </td>
-        <td>
-          <%= link_to q.body, q %>
-        </td>
-        <td><%= button_to t('.edit'), edit_question_path(q), method: :get %></td>
-      </tr>
-    <% end %>
-    <tr>
-      <td>
-        <%= button_to t('.create_test'), new_admin_test_path, method: :get %>
-      </td>
-      <td>
-        <%= button_to t('.create_question', id: @test.id), new_test_question_path(@test), method: :get %>
-      </td>
-    </tr>
-  </table>
-</div>
 
-<div>
-  <%= button_to t('.edit'), edit_admin_test_path(@test), method: :get %>
-  <%= button_to t('test_passages.result.list'), admin_test_path, method: :get  %>
-</div>

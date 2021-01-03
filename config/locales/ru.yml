@@ -16,6 +16,8 @@ ru:
       test:
         create: "Создать Тест"
         update: "Обновить Тест"
+      test_passage:
+        create: "Продолжить"
     select:
       prompt: "Выберите категорию"
 
@@ -51,7 +53,7 @@ ru:
 
 
     show:
-      title: "Проходим %{test_title}. Пройдено %{question_counter}"
+      title: "Проходим %{test_title}."
       total: "Всего:"
 
 
@@ -68,6 +70,7 @@ ru:
         edit: "Редактировать"
         create_test: "+Новый тест"
         create_question: "+Новый вопрос для теста %{id}"
+        delete: "Удалить"
 
     questions:
       show:
@@ -82,10 +85,7 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
-    links:
-      login: "ВХОД"
-
-    header:
+    nav:
       tests: "Все тесты"
       about: "О проекте"
       contacts: "Контакты"
