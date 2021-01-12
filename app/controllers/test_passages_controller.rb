@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
 
@@ -14,6 +14,19 @@ class TestPassagesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@test_passage.current_question).call
+    body = JSON.parse(result.body)
+    raw_url = body["files"]["test-guru-question.txt"]["raw_url"]
+    flash_options = if result.success?
+                      { alert: t('.success'),
+                        notice: raw_url }
+                    else
+                      { alert: t('.failure') }
+                    end
+    redirect_to @test_passage, flash_options
   end
 
   private

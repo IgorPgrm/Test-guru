@@ -50,6 +50,11 @@ ru:
       correctly: "Вы ответили правильно на"
       percent: "Процент успешных"
       list: "Список тестов"
+    gist:
+      title: "Сохранить в Gist"
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения, произошла ошибка"
+      gist_link: "Открыть Gist"
 
 
     show:

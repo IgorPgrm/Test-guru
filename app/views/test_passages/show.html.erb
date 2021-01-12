@@ -21,4 +21,5 @@
 </div>
       <p><%= form.submit t('helpers.submit.test_passage.create') %></p>
     <% end %>
+    <p> <%= link_to t('test_passages.gist.title'), gist_test_passage_path(@test_passage), method: :post %></p>
     </div>

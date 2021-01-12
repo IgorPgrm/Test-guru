@@ -44,6 +44,12 @@ en:
       percent: "Percent"
       list: "Tests List"
 
+    gist:
+      title: "Save to Gist"
+      success: "Gist was been saved!"
+      failure: "An error occurred while saving"
+      gist_link: "Open Gist"
+
     show:
       title: "Pass the %{test_title}."
       total: "Total:"
