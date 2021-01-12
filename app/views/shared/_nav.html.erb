@@ -15,7 +15,12 @@
         <%= link_to t('.contacts'), "/about/author", class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%= link_to 'AdminPanel', admin_tests_path, role: "button", class: 'nav-link btn btn-success' if current_user&.is_admin? %>
+        <% if current_user&.is_admin? %>
+        <li class="nav-item">
+          <%= link_to 'Gists', admin_gists_path, class: 'nav-link' %>
+        </li>
+        <%= link_to 'AdminPanel', admin_tests_path, role: "button", class: 'nav-link btn btn-success' %>
+        <% end %>
       </li>
     </ul>
   </div>
