@@ -18,14 +18,14 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
-    body = JSON.parse(result.body)
-    raw_url = body["files"]["test-guru-question.txt"]["raw_url"]
-    flash_options = if result.success?
-                      { alert: t('.success'),
-                        notice: raw_url }
-                    else
-                      { alert: t('.failure') }
-                    end
+    raw_url = result[:files][:"test-guru-question.txt"][:raw_url]
+    if result[:id]
+      @test_passage.user.gists.create(question: @test_passage.current_question, url: raw_url)
+      flash_options = { alert: t('.success'),
+                       notice: raw_url }
+    else
+      flash_options = { alert: t('.failure') }
+    end
     redirect_to @test_passage, flash_options
   end
 
