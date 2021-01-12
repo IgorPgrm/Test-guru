@@ -11,10 +11,12 @@
   </thead>
   <tbody>
   <% @gists.each do |g| %>
+  <tr>
   <th scope="row"><%= g.id %></th>
   <td><%= g.user.email %></td>
   <td><%= link_to question_body_formatter(g.question), question_path(g.question) %></td>
-    <td><%= link_to g.url, g.url, target: "_blank" %></td>
+  <td><%= link_to g.url, g.url, target: "_blank" %></td>
   <% end %>
+  </tr>
   </tbody>
 </table>
