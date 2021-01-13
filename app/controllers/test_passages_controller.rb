@@ -17,9 +17,10 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.call
+    if service.success?
     raw_url = result[:files][:"test-guru-question.txt"][:raw_url]
-    if result[:id]
       @test_passage.user.gists.create(question: @test_passage.current_question, url: raw_url)
       flash_options = { alert: t('.success'),
                        notice: raw_url }
