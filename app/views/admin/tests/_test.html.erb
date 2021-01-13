@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
   <p class="lead">
     <%= link_to t('test_passages.result.list'), admin_tests_path, role: "button", class: 'btn btn-success'%>
     <%= link_to t('.create_test'), new_admin_test_path, role: "button", class: 'btn btn-primary' %>
@@ -14,9 +14,17 @@
     <% @test.questions.each do |q|%>
       <div class="card-body col-3">
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-          <div class="card-header"><%= q.id %></div>
+          <div class="card-header"><%= q.id %> | <%= q.body.truncate(50) %></div>
           <div class="card-body">
-            <h5 class="card-title"><%= q.body %></h5>
+            <% q.answers.each do |a| %>
+            <h6 class="card-title">
+              <label class="answer-body">
+              <%= check_box_tag(a.id, "#{a.correct? ? 1 : 0 }", a.correct?, class: :checkbox) %> <%= a.body %></h6>
+              </label>
+            <% end %>
+            <p class="add-answer">
+              <%= link_to "+", new_question_answer_path(q), role: "button", class:'btn btn-success' %>
+            </p>
             <p class="card-text"><%= link_to t('.edit'), edit_question_path(q), role: "button", class:'btn btn-warning' %>
               <%= link_to t('.delete'), question_path(q), method: :delete, role: "button", class:'btn btn-danger' %></p>
           </div>

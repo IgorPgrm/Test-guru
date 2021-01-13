@@ -3,6 +3,8 @@
 class Question < ApplicationRecord
   belongs_to :test
   has_many :answers, dependent: :nullify
+  has_many :gists, dependent: :nullify
+  has_many :test_passages, foreign_key: :current_question_id, dependent: :nullify
 
   validates :body, presence: true
   validate :answers_counter, on: :create
