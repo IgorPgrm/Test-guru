@@ -2,7 +2,9 @@ document.addEventListener('turbolinks:load', function(){
     var new_user = document.querySelector('.new_user')
     if (new_user){
         var userPasswordConfInput = document.querySelector("input[id=user_password_confirmation]")
+        var userPasswordInput = document.querySelector("input[id=user_password]")
         userPasswordConfInput.addEventListener('keyup', passwordsMatch)
+        userPasswordInput.addEventListener('keyup', passwordsMatch)
     }
 })
 
