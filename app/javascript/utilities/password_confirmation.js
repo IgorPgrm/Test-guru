@@ -16,7 +16,7 @@ function passwordsMatch(value){
     var actions = document.querySelector('.actions')
     var but = actions.childNodes[1]
 
-    if (confirmPasswordText == "" || userPasswordText == ""){
+    if (confirmPasswordText.replace(/\s/g,"") == "" || userPasswordText.replace(/\s/g,"") == ""){
         passSuccessImg.classList.add('hide')
         passWrongImg.classList.add('hide')
         but.disabled = true
