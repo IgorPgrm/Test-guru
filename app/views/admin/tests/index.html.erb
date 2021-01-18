@@ -3,7 +3,11 @@
   <table class="table table-striped" border="1" width="400">
     <tr>
       <th>ID</th>
-      <th><%= t('helpers.label.test.title') %></th>
+      <th class="sort-by-title pointer">
+        <%= fa_icon "arrow-up", class: 'text-success hide' %>
+        <%= fa_icon "arrow-down", class: 'text-success hide' %>
+        <%= t('helpers.label.test.title') %>
+      </th>
       <th><%= t('questions.header') %></th>
       <th><%= t('helpers.label.test.level') %></th>
     </tr>
