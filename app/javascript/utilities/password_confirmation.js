@@ -18,19 +18,19 @@ function passwordsMatch(value){
     var actions = document.querySelector('.actions')
     var but = actions.childNodes[1]
 
-    if (confirmPasswordText.replace(/\s/g,"") == "" || userPasswordText.replace(/\s/g,"") == ""){
+    if (confirmPasswordText == "" || userPasswordText == ""){
         passSuccessImg.classList.add('hide')
         passWrongImg.classList.add('hide')
         but.disabled = true
+        return
+    }
+    if (confirmPasswordText == userPasswordText){
+        passWrongImg.classList.add('hide')
+        passSuccessImg.classList.remove('hide')
+        but.disabled = false
     } else {
-        if (confirmPasswordText == userPasswordText){
-            passWrongImg.classList.add('hide')
-            passSuccessImg.classList.remove('hide')
-            but.disabled = false
-        } else {
-            passWrongImg.classList.remove('hide')
-            passSuccessImg.classList.add('hide')
-            but.disabled = true
-        }
+        passWrongImg.classList.remove('hide')
+        passSuccessImg.classList.add('hide')
+        but.disabled = true
     }
 }
