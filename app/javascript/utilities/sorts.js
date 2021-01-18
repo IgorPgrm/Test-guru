@@ -24,15 +24,19 @@ function sortRowsByTitle(){
         this.querySelector('.fa-arrow-down').classList.remove('hide')
     }
 
-
     var sortedTable = document.createElement('table')
     sortedTable.classList.add("table")
     sortedTable.classList.add("table-striped")
+    sortedTable.style.border = "1"
+    sortedTable.setAttribute("border","1");
+    sortedTable.setAttribute("width","400");
+    sortedTable.style.borderWidth = "400"
     sortedTable.appendChild(rows[0])
 
-    for (var i = 0; i < sortedRows; i++){
+    for (var i = 0; i < sortedRows.length; i++){
         sortedTable.appendChild(sortedRows[i])
     }
+
     table.parentNode.replaceChild(sortedTable, table)
 }
 

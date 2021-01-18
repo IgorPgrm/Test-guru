@@ -6,3 +6,4 @@ require("popper.js")
 require("bootstrap")
 
 import "utilities/sorts"
+import "utilities/password_confirmation"

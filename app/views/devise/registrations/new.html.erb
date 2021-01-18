@@ -29,10 +29,12 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= fa_icon "check-circle", class: "pass-icon-success text-success hide" %>
+    <%= fa_icon "times-circle", class: "pass-icon-wrong text-danger hide" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", disabled: true %>
   </div>
 <% end %>
 
