@@ -1,5 +1,6 @@
 <h1><%= t('.header') %></h1>
 <div style="width: 50%; margin: 0 auto; text-align: center;">
+  <%= render 'shared/errors', resource: @test %>
   <table class="table table-striped" border="1" width="400">
     <tr>
       <th>ID</th>
@@ -10,20 +11,29 @@
       </th>
       <th><%= t('questions.header') %></th>
       <th><%= t('helpers.label.test.level') %></th>
+      <th><%= t('.action') %></th>
     </tr>
     <% @tests.each do |t| %>
       <tr>
-        <td>
+        <td class="align-middle">
           <%= t.id %>
         </td>
-        <td>
-          <%= link_to t.title, admin_test_path(t) %>
+        <td class="align-middle">
+          <%= content_tag :span, t.title, class: 'test-title', data: {test_id: t.id} %>
+          <%= render 'admin/tests/form_inline', test: t == @test ? @test : t %>
         </td>
-        <td>
+        <td class="align-middle">
           <%= t.questions.count %>
         </td>
-        <td>
+        <td class="align-middle">
           <%= t.level %>
+        </td>
+        <td>
+          <%= link_to "Show", admin_test_path(t) %>
+          <%= link_to "Edit", edit_admin_test_path(t),
+                      data: {test_id: t.id },
+                      class: 'form-inline-link' %>
+          <%= link_to "Delete", admin_test_path(t), method: :delete, data: {confirm: 'Are you sure?'} %>
         </td>
     <% end %>
     </tr>
