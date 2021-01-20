@@ -16,12 +16,13 @@ function formInlineLinkHandler(event){
 
 function formInLineHandler(testId){
     var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
+    if (link != null ){
+        var $testTitle = $('.test-title[data-test-id="' + testId + '"]')
+        var $formInline = $('.form-inline[data-test-id="' + testId + '"]')
 
-    var $testTitle = $('.test-title[data-test-id="' + testId + '"]')
-    var $formInline = $('.form-inline[data-test-id="' + testId + '"]')
+        $testTitle.toggle()
+        $formInline.toggle()
 
-    $testTitle.toggle()
-    $formInline.toggle()
-
-    if ($formInline.is(':visible') ? link.textContent = 'Cancel' : link.textContent = 'Edit');
+        if ($formInline.is(':visible') ? link.textContent = 'Cancel' : link.textContent = 'Edit');
+    }
 }
