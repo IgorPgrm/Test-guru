@@ -57,6 +57,7 @@ en:
   admin:
     tests:
       index:
+        action: "Action"
         header: "Tricky Tests"
       create:
         success: "Test was cuccessfuly created"
@@ -68,6 +69,8 @@ en:
         create_test: "+Create New test"
         create_question: "+New Question for test %{id}"
         delete: "Delete"
+      form_inline:
+        submit: "Ok"
 
   shared:
     errors:

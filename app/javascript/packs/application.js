@@ -7,3 +7,4 @@ require("bootstrap")
 
 import "utilities/sorts"
 import "utilities/password_confirmation"
+import "utilities/form_inline"

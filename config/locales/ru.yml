@@ -66,6 +66,7 @@ ru:
     tests:
       index:
         header: "Доступные тесты"
+        action: "Действие"
       create:
         success: "Тест успешно создан."
       test:
@@ -76,6 +77,8 @@ ru:
         create_test: "+Новый тест"
         create_question: "+Новый вопрос для теста %{id}"
         delete: "Удалить"
+      form_inline:
+        submit: "Ок"
 
     questions:
       show:
