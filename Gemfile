@@ -7,8 +7,6 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-# Use PostgreSQL as the database for Active Record
-gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -69,6 +67,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'pg' #or version of pg you want
+  gem 'rails_12factor' #Heroku static assets for image and
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
