@@ -15,6 +15,8 @@ module TestGuru
     config.load_defaults 6.0
     config.time_zone = 'St. Petersburg'
     config.i18n.default_locale = :ru
+    config.i18n.fallbacks = true
+    config.i18n.fallbacks = %i[ru en]
     config.autoload_paths << "#{Rails.root}/lib/clients"
 
     # Settings in config/environments/* take precedence over those specified here.
