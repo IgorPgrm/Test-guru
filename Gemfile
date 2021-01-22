@@ -43,6 +43,8 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem "font-awesome-rails"
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 group :development, :test do
   #ENVIRONMENT SECRET KEYS
   gem 'dotenv-rails'
