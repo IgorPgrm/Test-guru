@@ -7,7 +7,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!(first_name: 'System', last_name:'TestGuru', email: 'system@testguru.tg', password: 'testpass')
+user = User.new({first_name: 'Administrator',
+                     last_name:'TestGuru',
+                     email: 'Admin@testGuru.ru',
+                     password: 'testpass',
+                     password_confirmation: 'testpass'})
+user.confirm
+user.type = "Admin"
+user.save!
 front = Category.create!(title: 'Frontend')
 back = Category.create!(title: 'Backend')
 ml = Category.create!(title: 'Machine Learning')
