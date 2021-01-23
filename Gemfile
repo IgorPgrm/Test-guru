@@ -45,7 +45,6 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do
   #ENVIRONMENT SECRET KEYS
-  gem 'dotenv-rails'
   gem "octokit", "~> 4.0"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -71,8 +70,4 @@ end
 
 group :production do
   gem 'pg' #or version of pg you want
-  gem 'rails_12factor' #Heroku static assets for image and
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
