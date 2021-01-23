@@ -48,7 +48,6 @@ gem 'faker'
 
 group :development, :test do
   #ENVIRONMENT SECRET KEYS
-  gem "octokit", "~> 4.0"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
@@ -73,6 +72,7 @@ end
 
 group :production do
   gem 'pg' #or version of pg you want
+  gem "octokit", "~> 4.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
