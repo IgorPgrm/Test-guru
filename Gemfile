@@ -42,6 +42,9 @@ gem 'bootstrap', '~> 5.0.0.alpha3'
 gem "font-awesome-rails"
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'rake' , '>= 0.9.2', require: false
+gem 'rspec'
+gem 'faker'
 
 group :development, :test do
   #ENVIRONMENT SECRET KEYS
@@ -71,3 +74,6 @@ end
 group :production do
   gem 'pg' #or version of pg you want
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
