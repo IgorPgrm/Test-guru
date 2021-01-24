@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: {sign_in: :login, sign_out: :logout}
   root to: 'tests#index'
-  post 'send_feedback', to: 'feedback#feedback_send'
+  post 'feedback_send', to: 'feedback#feedback_send'
   get 'feedback', to: 'feedback#index'
 
   resources :tests, only: :index do
