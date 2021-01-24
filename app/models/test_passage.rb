@@ -9,7 +9,7 @@ class TestPassage < ApplicationRecord
   SUCCESS_PERCENT = 85.freeze
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
+    if correct_answers.count > 0 && correct_answer?(answer_ids)
       self.correct_questions += 1
     end
     save!

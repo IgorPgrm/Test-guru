@@ -23,7 +23,12 @@
   </ul>
     <% end %>
 </div>
+      <% if @test_passage.current_question.answers.count > 0 %>
       <p><%= form.submit t('helpers.submit.test_passage.create') %></p>
+        <% else %>
+        <h6>Нет вариантов ответа</h6>
+        <%= link_to t('test_passages.result.list'), tests_path, class: 'btn btn-primary', method: :get %>
+        <% end %>
     <% end %>
     <p> <%= link_to t('test_passages.gist.title'), gist_test_passage_path(@test_passage), method: :post %></p>
     </div>
