@@ -22,7 +22,12 @@
         <td>
           <%= t.level %>
         </td>
-      <td><%= button_to t('Start'), start_test_path(t), class:"btn btn-success" %></td>
+      <td>
+        <% if t.questions.count > 0 %>
+        <%= button_to t('Start'), start_test_path(t), class:"btn btn-success" %></td>
+          <% else %>
+          <%= t('.no_questions') %>
+          <% end %>
     <% end %>
     </tr>
   </table>

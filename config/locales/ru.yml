@@ -35,6 +35,7 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+      no_questions: "Нет вопросов"
 
   questions:
     header: "Вопросы"

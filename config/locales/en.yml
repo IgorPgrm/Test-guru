@@ -32,6 +32,7 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+      no_questions: "No questions"
 
   test_passages:
     result:
