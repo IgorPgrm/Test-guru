@@ -1,7 +1,8 @@
 class FeedbackMailer < ApplicationMailer
-  def send_feedback_email
-    @subject = params[:subject]
-    @text = params[:text]
-    mail(to: "Shumeikoigor@yandex.ru", subject: "#{@subject} #{@text}", cc: "system@testguru.com")
+  def send_feedback_email(subject, text, sent_at = Time.now)
+    @subject = subject
+    @sent_on = sent_at
+    @text = text
+    @headers = {content_type: 'text/html'}
   end
 end
