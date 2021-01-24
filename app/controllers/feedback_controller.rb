@@ -2,9 +2,9 @@ class FeedbackController < ApplicationController
 
   def index; end
 
-  def feedback_send
+  def feedback
     FeedbackMailer.with(params).send_feedback_email.deliver_now
-    redirect_to feedback_path, notice: "Success! #{params.inspect}"
+    redirect_to feedback_path, notice: "Success!"
   end
 
   private

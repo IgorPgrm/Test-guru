@@ -4,7 +4,7 @@
     <div class="card border-success">
       <h2>Форма обратной связи</h2>
       <div class="form-group">
-  <%= form_tag(action: :feedback_send, method: :post) do%>
+  <%= form_tag(action: :feedback, method: :post) do%>
     <%= label_tag(:subject) %> :<br>
     <%= text_field_tag(:subject) %>
     <br>
