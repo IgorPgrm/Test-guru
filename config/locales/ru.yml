@@ -97,6 +97,7 @@ ru:
       tests: "Все тесты"
       about: "О проекте"
       contacts: "Контакты"
+      feedback: "Задать вопрос"
       logout: "Выход"
       login: "Войти"
       signup: "Зарегистрироваться"
