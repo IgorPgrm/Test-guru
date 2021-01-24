@@ -19,6 +19,14 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
+  def destroy
+    if @test.destroy
+      redirect_to admin_tests_path, notice: "#{@test.title} Успешно удалён"
+    else
+      redirect_to admin_tests_path, alert: "Во время удаления произошла ошибка"
+    end
+  end
+
   def update_inline
     if @test.update(test_params)
       redirect_to admin_tests_path
