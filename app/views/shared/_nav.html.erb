@@ -15,6 +15,12 @@
         <%= link_to t('.contacts'), "/about/author", class: 'nav-link' %>
       </li>
       <li class="nav-item">
+        <%= link_to t('.feedback'), "/feedback", class: 'nav-link' %>
+      </li>
+      <% if user_signed_in? %>
+
+        <% end %>
+      <li class="nav-item">
         <% if current_user&.is_admin? %>
         <li class="nav-item">
           <%= link_to 'Gists', admin_gists_path, class: 'nav-link' %>

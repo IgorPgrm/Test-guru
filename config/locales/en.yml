@@ -32,6 +32,7 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+      no_questions: "No questions"
 
   test_passages:
     result:
@@ -85,6 +86,7 @@ en:
       logout: "LogOut"
       login: "LogIn"
       signup: "SignUp"
+      feedback: "Feedback"
 
   tests_mailer:
     completed_test:

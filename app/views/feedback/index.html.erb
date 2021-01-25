@@ -1,0 +1,20 @@
+
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-5">
+    <div class="card border-success">
+      <h2>Форма обратной связи</h2>
+      <div class="form-group">
+  <%= form_tag(action: :feedback, method: :post) do%>
+    <%= label_tag(:subject) %> :<br>
+    <%= text_field_tag(:subject) %>
+    <br>
+          <br>
+    <%= label_tag(:text) %><br>
+    <%= text_area_tag(:text) %><br>
+
+    <%= submit_tag "Send" %>
+  <% end %>
+      </div>
+    </div>
+  </div>
+</div>
