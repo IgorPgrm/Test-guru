@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2021_01_25_162558) do
 
   create_table "achivments", force: :cascade do |t|
     t.text "name"
-    t.text "text"
+    t.text "file_name"
+    t.text "identity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_achivments_on_name"

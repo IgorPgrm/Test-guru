@@ -14,7 +14,8 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :gists
-  has_many :badges
+  has_many :badges, dependent: :destroy
+  has_many :achivments, through: :badges
 
   def list_of_tests(level = 0)
     tests.where(level: level)
