@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: :index
+
   resources :test_passages, only: %i[show update] do
     member do
       get :result
@@ -28,6 +30,8 @@ Rails.application.routes.draw do
       patch :update_inline, on: :member
     end
     resources :gists, only: %i[index show]
+    resources :achievements
+    resources :badges
   end
 
 end

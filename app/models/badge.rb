@@ -1,4 +1,4 @@
 class Badge < ApplicationRecord
   belongs_to :user
-  belongs_to :achivment
+  belongs_to :achievment
 end
