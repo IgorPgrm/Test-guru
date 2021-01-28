@@ -4,6 +4,7 @@ class CreateAchievements < ActiveRecord::Migration[6.0]
       t.text :name, index: true
       t.text :file_name, unique: true
       t.text :identity
+      t.text :value
       t.timestamps null: false
     end
   end

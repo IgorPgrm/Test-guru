@@ -1,0 +1,23 @@
+<h1>Admin Panel Achievements:</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">file_name</th>
+    <th scope="col">Identity</th>
+    <th scope="col">Value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @ach.each do |a| %>
+  <tr>
+    <th scope="row"><%= a.id %></th>
+    <td><%= a.name %></td>
+    <td><%= a.file_name %></td>
+    <td><%= a.identity %></td>
+    <td><%= a.value %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

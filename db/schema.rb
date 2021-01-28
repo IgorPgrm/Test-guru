@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_162558) do
     t.text "name"
     t.text "file_name"
     t.text "identity"
+    t.text "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_achievements_on_name"
