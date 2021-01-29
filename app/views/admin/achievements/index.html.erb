@@ -7,16 +7,20 @@
     <th scope="col">file_name</th>
     <th scope="col">Identity</th>
     <th scope="col">Value</th>
+    <th scope="col">Action</th>
   </tr>
   </thead>
   <tbody>
-  <% @ach.each do |a| %>
+  <% @achievements.each do |a| %>
   <tr>
     <th scope="row"><%= a.id %></th>
     <td><%= a.name %></td>
     <td><%= a.file_name %></td>
     <td><%= a.identity %></td>
     <td><%= a.value %></td>
+    <td>
+      <%= link_to "Show", admin_achievement_path(a) %>
+    </td>
   </tr>
   <% end %>
   </tbody>
