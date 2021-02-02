@@ -19,7 +19,20 @@ class Admin::AchievementsController < ActionController::Base
 
   end
 
+  def create
+    @achievement = Achievement.new(achievement_params)
+    if @achievement.save
+      redirect_to admin_achievements_path, notice: "Успешно"
+    else
+      render :new
+    end
+  end
+
   private
+
+  def achievement_params
+    params.require(:achievement).permit(:name, :file_name, :identity, :value, :category_id)
+  end
 
   def find_achievement
     @achievement = Achievement.find(params[:id])
