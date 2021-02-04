@@ -24,6 +24,9 @@
     <td><%= a.value %></td>
     <td>
       <%= link_to "Show", admin_achievement_path(a) %>
+      <%= link_to "Edit", edit_admin_achievement_path(a) %>
+      <%= link_to "Delete", admin_achievement_path(a), method: :delete,
+                  data: {confirm: "Are you sure?"} %>
     </td>
   </tr>
   <% end %>

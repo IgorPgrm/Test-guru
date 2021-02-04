@@ -1,6 +1,6 @@
 class Admin::AchievementsController < ActionController::Base
   layout "admin"
-  before_action :find_achievement, only: %i[edit update]
+  before_action :find_achievement, only: %i[edit update destroy]
   before_action :available_image, only: %i[new create edit update]
 
   def index
@@ -11,12 +11,18 @@ class Admin::AchievementsController < ActionController::Base
     @achievement = Achievement.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
+    if @achievement.update(achievement_params)
+      redirect_to admin_achievements_path, notice: "Success"
+    else
+      render :edit
+    end
+  end
 
+  def destroy
+    redirect_to admin_achievements_path, notice: @achievement.destroy ? "Success" : "Failed"
   end
 
   def create
