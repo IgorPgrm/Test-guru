@@ -11,7 +11,8 @@ class BadgeService
     @achievements.each do |a|
       identity = a.identity
       value = a.value
-      if send identity, value
+      result = send identity, value
+      if result
         issue_badge(a)
       else
         false
@@ -28,7 +29,7 @@ class BadgeService
   end
 
   def first_try(empty)
-    TestPassage.where(user_id: @user.id, test_id: @test.id).count == 1
+    TestPassage.where(user_id: @user.id, test_id: @test.id).count == 1 && @test_passage.success?
   end
 
   def issue_badge(achievement)
