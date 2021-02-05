@@ -1,5 +1,20 @@
 <h1>Admin Panel Bages:</h1>
 
-<%= @badges.each do |b| %>
-<%= b.inspect %>
-<% end %>
+<div class="card-deck">
+  <% @badges.each do |b| %>
+    <div class="col mb-4">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "achievements/#{b.achievement.file_name}", class: "card-img-top", alt: "card-image", size: "100x160"%>
+        <div class="card-body">
+          <h5 class="card-title"><%= b.achievement.name %></h5>
+          <p class="card-text">Получил: <%= "#{b.user.first_name} #{b.user.last_name} [id:#{b.user_id}]" %></p>
+          <p class="card-text">За тест: <%= link_to b.test_passage.test.title,
+                                                    result_test_passage_path(b.test_passage) %></p>
+          <p class="card-text"><small class="text-muted"><%= b.created_at %></small></p>
+        </div>
+        <%= link_to ' Delete', admin_badge_path(b), method: :delete, class: 'btn btn-danger fas fa-trash',
+                   data: {confirm: "Are you sure?"}%>
+      </div>
+    </div>
+    <% end %>
+  </div>

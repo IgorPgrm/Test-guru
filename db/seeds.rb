@@ -1,12 +1,3 @@
-# frozen_string_literal: true
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 user = User.new({first_name: 'Administrator',
                      last_name:'TestGuru',
                      email: 'Admin@testGuru.ru',
@@ -33,6 +24,31 @@ quest3 = Question.create!(body: 'Какой вид обучения не при�
 quest4 = Question.create!(body: 'Какой тип данных, указывает на число с плавающей запятой', test_id: test4.id)
 quest5 = Question.create!(body: 'Тег <ruby> в HTML означает:', test_id: test5.id)
 quest6 = Question.create!(body: 'Значение square в list-style-type означает', test_id: test6.id)
+quest7 = Question.create(body: "Как вывести \"Hello TestGuru\" в модальное окно уведомления?")
+quest8 = Question.create(body: "Укажите корректные имена переменных?")
+quest9 = Question.create(body: "Что выведет консоль? \nconsole.log( 2 ** 3 ** 2)")
+quest10 = Question.create(body: "Какие варианты позволят объявить переменную?")
+quest11 = Question.create(body: "Как расшифровывается HTML?")
+quest12 = Question.create(body: "Какое расширение должны иметь HTML документы?")
+quest13 = Question.create(body: "Какой тег позволяет вставлять картинки в HTML документы?")
+quest14 = Question.create(body: "Выберите ссылку с правильным синтаксисом.")
+quest15 = Question.create(body: "С помощью какого тэга можно сделать текст жирным?")
+quest16 = Question.create(body: "Укажите тэг позволяющий создавать заголовки.")
+quest17 = Question.create(body: "Укажите тег позволяющий определить таблицу.")
+quest18 = Question.create(body: "Укажите тег позволяющий определить упорядоченный список.")
+quest19 = Question.create(body: "Выберите перечень, в котором все теги являются устаревшими.")
+quest20 = Question.create(body: "В каком месте HTML документа должны определяться теги <title>, <link> и <meta>.")
+quest21 = Question.create(body: "Укажите тег позволяющий подключить к HTML документу скрипты выполняющиеся на стороне клиента.")
+quest22 = Question.create(body: "Укажите тег позволяющий определить поле для ввода пароля.")
+quest23 = Question.create(body: "Как называется технология позволяющая оформлять HTML документы.")
+quest24 = Question.create(body: "С помощью какого тэга был создан самый большой заголовок?")
+quest25 = Question.create(body: "Библиотека для работы с ML называется")
+quest26 = Question.create(body: "Как называется комп. модель восприятия")
+quest27 = Question.create(body: "Какое понятие используется в ML для обозначения связей")
+quest28 = Question.create(body: "Какого понятия нет в ML")
+quest29 = Question.create(body: "В большинстве ЯП, операция И определяется как")
+quest30 = Question.create(body: "Файлы изображений с альфа-каналом могут иметь расширение:")
+
 
 Answer.create!(body: 'Создаёт гипертекстовые ссылки.', correct: false, question_id: quest1.id)
 Answer.create!(body: 'Задает полужирное начертание отрывка текста.', correct: false, question_id: quest1.id)
@@ -57,3 +73,122 @@ Answer.create!(body: 'Контейнер для Восточно-Азиатск�
 Answer.create!(body: 'Возводит число в степень 2', correct: false, question_id: quest6.id)
 Answer.create!(body: 'Квадратная рамка', correct: false, question_id: quest6.id)
 Answer.create!(body: 'Однотонный квадрат', correct: true, question_id: quest6.id)
+
+Answer.create!(body: 'alert("Hello TestGuru");  ', correct: true, question_id: quest7.id)
+Answer.create!(body: 'msg("Hello TestGuru");  ', correct: false, question_id: quest7.id)
+Answer.create!(body: 'alertBox("Hello TestGuru");  ', correct: false, question_id: quest7.id)
+Answer.create!(body: 'msgBox("Hello TestGuru");  ', correct: false, question_id: quest7.id)
+
+Answer.create!(body: 'foo', correct: true, question_id: quest8.id)
+Answer.create!(body: 'with', correct: false, question_id: quest8.id)
+Answer.create!(body: '_foo', correct: false, question_id: quest8.id)
+Answer.create!(body: '99bar', correct: false, question_id: quest8.id)
+
+Answer.create!(body: '36', correct: false, question_id: quest9.id)
+Answer.create!(body: '64', correct: false, question_id: quest9.id)
+Answer.create!(body: '512', correct: true, question_id: quest9.id)
+Answer.create!(body: '1024', correct: false, question_id: quest9.id)
+
+Answer.create!(body: 'variable carName', correct: false, question_id: quest10.id)
+Answer.create!(body: 'var carName', correct: true, question_id: quest10.id)
+Answer.create!(body: 'v carName', correct: false, question_id: quest10.id)
+Answer.create!(body: 'let carName', correct: false, question_id: quest10.id)
+
+Answer.create!(body: 'HyperThread Mask Language', correct: false, question_id: quest11.id)
+Answer.create!(body: 'HyperThread Markup Language', correct: false, question_id: quest11.id)
+Answer.create!(body: 'HyperText Mask Language', correct: false, question_id: quest11.id)
+Answer.create!(body: 'HyperText Markup Language', correct: true, question_id: quest11.id)
+
+Answer.create!(body: ' .php или .asp', correct: false, question_id: quest12.id)
+Answer.create!(body: '.txt или .doc', correct: false, question_id: quest12.id)
+Answer.create!(body: '.html или .htm', correct: true, question_id: quest12.id)
+Answer.create!(body: '.doc и .docx', correct: false, question_id: quest12.id)
+
+Answer.create!(body: '<pic>', correct: false, question_id: quest13.id)
+Answer.create!(body: '<img>', correct: true, question_id: quest13.id)
+Answer.create!(body: '<picture>', correct: false, question_id: quest13.id)
+Answer.create!(body: '<image> ', correct: false, question_id: quest13.id)
+
+Answer.create!(body: '<a href='https://testguru2021a.herokuapp.com' value='testguru2021a.ru' /> ', correct: false, question_id: quest14.id)
+Answer.create!(body: '<a name='https://testguru2021a.herokuapp.com'>https://testguru2021a.herokuapp.com</a> ', correct: false, question_id: quest14.id)
+Answer.create!(body: '<a href='https://testguru2021a.herokuapp.com'>testguru2021a</a> ', correct: true, question_id: quest14.id)
+Answer.create!(body: '<a src='https://testguru2021a.herokuapp.com'>testguru2021a</a> ', correct: false, question_id: quest14.id)
+
+Answer.create!(body: '<b>', correct: true, question_id: quest15.id)
+Answer.create!(body: '<i> ', correct: false, question_id: quest15.id)
+Answer.create!(body: '<big> ', correct: false, question_id: quest15.id)
+Answer.create!(body: ' <h2>', correct: false, question_id: quest15.id)
+
+Answer.create!(body: '<strong> ', correct: false, question_id: quest16.id)
+Answer.create!(body: '<small>', correct: false, question_id: quest16.id)
+Answer.create!(body: '<h2> ', correct: false, question_id: quest16.id)
+Answer.create!(body: ' <em> ', correct: false, question_id: quest16.id)
+
+Answer.create!(body: '<tab> ', correct: false, question_id: quest17.id)
+Answer.create!(body: '<table> ', correct: true, question_id: quest17.id)
+Answer.create!(body: '<tr> ', correct: false, question_id: quest17.id)
+Answer.create!(body: '<tabs>', correct: false, question_id: quest17.id)
+
+Answer.create!(body: '<ul> ', correct: false, question_id: quest18.id)
+Answer.create!(body: '<li>', correct: true, question_id: quest18.id)
+Answer.create!(body: '<ol>', correct: false, question_id: quest18.id)
+Answer.create!(body: '<list>', correct: false, question_id: quest18.id)
+
+Answer.create!(body: '<strike>, <font> и <center> ', correct: true, question_id: quest19.id)
+Answer.create!(body: '<u>, <b> и <s> ', correct: false, question_id: quest19.id)
+Answer.create!(body: '<center>, <span> и <div>', correct: false, question_id: quest19.id)
+Answer.create!(body: '<menu>, <font> и <span>', correct: false, question_id: quest19.id)
+
+Answer.create!(body: 'Данные теги могут определятся в любом месте документа ', correct: false, question_id: quest20.id)
+Answer.create!(body: 'В секции <body> ', correct: false, question_id: quest20.id)
+Answer.create!(body: 'В секции <head> ', correct: true, question_id: quest20.id)
+
+Answer.create!(body: '<client> ', correct: false, question_id: quest21.id)
+Answer.create!(body: '<applet> ', correct: false, question_id: quest21.id)
+Answer.create!(body: '<object>', correct: false, question_id: quest21.id)
+Answer.create!(body: '<script>', correct: true, question_id: quest21.id)
+
+Answer.create!(body: '<password> ', correct: false, question_id: quest22.id)
+Answer.create!(body: '<input type='password' /> ', correct: true, question_id: quest22.id)
+Answer.create!(body: '<pass>', correct: false, question_id: quest22.id)
+Answer.create!(body: '<hide>', correct: false, question_id: quest22.id)
+
+Answer.create!(body: 'jQuery ', correct: false, question_id: quest23.id)
+Answer.create!(body: 'PHP', correct: false, question_id: quest23.id)
+Answer.create!(body: 'CSS', correct: true, question_id: quest23.id)
+Answer.create!(body: 'XHTML', correct: false, question_id: quest23.id)
+
+Answer.create!(body: '<b> ', correct: false, question_id: quest24.id)
+Answer.create!(body: '<h6> ', correct: false, question_id: quest24.id)
+Answer.create!(body: '<h1>', correct: true, question_id: quest24.id)
+Answer.create!(body: '<font-size="72">', correct: false, question_id: quest24.id)
+
+Answer.create!(body: 'TensorMentor', correct: false, question_id: quest25.id)
+Answer.create!(body: 'TensorFlow', correct: true, question_id: quest25.id)
+Answer.create!(body: 'TesnorTeacher', correct: false, question_id: quest25.id)
+Answer.create!(body: 'StackOverFlow', correct: false, question_id: quest25.id)
+
+Answer.create!(body: 'Оптрон', correct: false, question_id: quest26.id)
+Answer.create!(body: 'Прецептрон', correct: true, question_id: quest26.id)
+Answer.create!(body: 'Аксон', correct: false, question_id: quest26.id)
+Answer.create!(body: 'Дендрит', correct: false, question_id: quest26.id)
+
+Answer.create!(body: 'объём', correct: false, question_id: quest27.id)
+Answer.create!(body: 'вес', correct: true, question_id: quest27.id)
+Answer.create!(body: 'длина', correct: false, question_id: quest27.id)
+Answer.create!(body: 'линейность', correct: false, question_id: quest27.id)
+
+Answer.create!(body: 'Перцептрон', correct: false, question_id: quest28.id)
+Answer.create!(body: 'Перцептроном с последовательными связями', correct: false, question_id: quest28.id)
+Answer.create!(body: 'Перцептроном с обратной отрицательной связью', correct: true, question_id: quest28.id)
+Answer.create!(body: 'Элементарный перцептрон', correct: false, question_id: quest28.id)
+
+Answer.create!(body: '||', correct: false, question_id: quest29.id)
+Answer.create!(body: '&&', correct: true, question_id: quest29.id)
+Answer.create!(body: '++', correct: false, question_id: quest29.id)
+Answer.create!(body: '||=', correct: false, question_id: quest29.id)
+
+Answer.create!(body: 'PNG', correct: true, question_id: quest30.id)
+Answer.create!(body: 'GIF', correct: false, question_id: quest30.id)
+Answer.create!(body: 'JPEG', correct: true, question_id: quest30.id)
+Answer.create!(body: 'IMG', correct: false, question_id: quest30.id)
