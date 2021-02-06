@@ -11,10 +11,10 @@ class User < ApplicationRecord
          :validatable
 
   has_many :authored_tests, foreign_key: "author_id", class_name: "Test"
-  has_many :test_passages, dependent: :destroy
+  has_many :test_passages, dependent: :nullify
   has_many :tests, through: :test_passages
   has_many :gists
-  has_many :badges, dependent: :destroy
+  has_many :badges, dependent: :nullify
   has_many :achievements, through: :badges
 
   def list_of_tests(level = 0)
