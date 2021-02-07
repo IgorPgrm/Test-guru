@@ -23,16 +23,21 @@ class BadgeService
   end
 
   def category_all(category_name)
-    return false unless @test_passage.test.category.title == category_name ||
-      @user.badges.where(achievement: @achievement).count.nil?
+    return false unless @test_passage.test.category.title == category_name || user_does_not_have_this_badge
 
     all_tests_ids_with_category = Test.show_by_category(category_name).pluck(:id).sort
-    user_passed_tp = @user_test_passages.where(test_id: all_tests_ids_with_category).pluck(:test_id).sort
+    user_passed_tp = @user_test_passages.where(test_id: all_tests_ids_with_category,
+                                               result: true).pluck(:test_id).sort.uniq
     all_tests_ids_with_category == user_passed_tp
   end
 
   def level_all(lvl)
-    return nil
+    return false unless @test_passage.test.level == lvl || !user_does_not_have_this_badge
+
+    all_test_ids_with_lvl = Test.where(level: lvl).ids.sort
+    user_passed_tp = @user_test_passages.where(test_id: all_test_ids_with_lvl,
+                                               result: true).pluck(:test_id).sort.uniq
+    all_test_ids_with_lvl == user_passed_tp
   end
 
   def first_try(empty)
@@ -42,5 +47,9 @@ class BadgeService
   def issue_badge(achievement)
     badge = Badge.new(achievement: achievement, test_passage: @test_passage)
     @user.badges.push(badge) ? badge : false
+  end
+
+  def user_does_not_have_this_badge
+    @user.badges.where(achievement: @achievement).present?
   end
 end
