@@ -10,7 +10,14 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      BadgeService.new(@test_passage).call
+      badges = BadgeService.new(@test_passage).call
+      if badges.present?
+        names = ""
+        badges.each do |b|
+          names += "#{ b.achievement.name }"
+        end
+        flash[:notice] = "Получены награды #{names}"
+      end
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

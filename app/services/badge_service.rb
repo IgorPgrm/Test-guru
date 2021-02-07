@@ -6,6 +6,7 @@ class BadgeService
     @user = test_passage.user
     @user_test_passages = TestPassage.where(user: @user)
     @achievements = Achievement.all
+    @received_badges  = []
   end
 
   def call
@@ -16,10 +17,9 @@ class BadgeService
       result = send identity, value
       if result
         issue_badge(a)
-      else
-        false
       end
     end
+    @received_badges
   end
 
   def category_all(category_name)
@@ -46,6 +46,7 @@ class BadgeService
 
   def issue_badge(achievement)
     badge = Badge.new(achievement: achievement, test_passage: @test_passage)
+    @received_badges.push(badge)
     @user.badges.push(badge) ? badge : false
   end
 
