@@ -36,7 +36,7 @@ class BadgeService
     all_test_ids_with_lvl == user_passed_tp
   end
 
-  def first_try(empty)
+  def first_try(_empty)
     @user_test_passages.where(test_id: @test_passage.test.id).count == 1
   end
 
