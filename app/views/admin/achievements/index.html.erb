@@ -1,0 +1,34 @@
+<h1>Admin Panel Achievements:</h1>
+<%= link_to 'New Achievement', new_admin_achievement_path, class:'btn btn-warning' %>
+
+<br>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">file_name</th>
+    <th scope="col">Identity</th>
+    <th scope="col">Value</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @achievements.each do |a| %>
+  <tr>
+    <th scope="row"><%= a.id %></th>
+    <td><%= a.name %></td>
+    <td><%= a.file_name %></td>
+    <td><%= a.identity %></td>
+    <td><%= a.value %></td>
+    <td>
+      <%= link_to "Show", admin_achievement_path(a) %>
+      <%= link_to "Edit", edit_admin_achievement_path(a) %>
+      <%= link_to "Delete", admin_achievement_path(a), method: :delete,
+                  data: {confirm: "Are you sure?"} %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

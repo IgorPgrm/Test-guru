@@ -2,9 +2,11 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
+  has_many :badges, dependent: :nullify
 
   before_validation :before_validation_set_first_question, on: :create
   before_update :set_next_question
+  before_save :set_passed_test, if: :success?
 
   SUCCESS_PERCENT = 85.freeze
 
@@ -57,5 +59,9 @@ class TestPassage < ApplicationRecord
 
   def set_next_question
     self.current_question = next_question
+  end
+
+  def set_passed_test
+    self.result = true
   end
 end

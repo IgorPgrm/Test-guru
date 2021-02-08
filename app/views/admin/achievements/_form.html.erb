@@ -1,0 +1,24 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-4">
+    <div class="card border-primary">
+      <div class="card-body">
+        <%= form_with model: [:admin, @achievement], local: true do |f| %>
+          <%= render 'shared/errors', resource: @achievement %>
+          <%= f.label :name %>
+          <%= f.text_field :name, id: :achievement_name, class: 'form-control' %>
+          <br>
+          <%= f.label :file_name %>
+          <%= f.select(:file_name, @images.map{|img| [img.titleize, img]}, class: 'form-control') %>
+          <br>
+          <%= f.label :identity %>
+          <%= f.select :identity, Achievement.identities.keys, class: 'form-control' %>
+          <br>
+          <%= f.label :value %>
+          <%= f.text_field :value, class: 'value-text form-control' %>
+          <br>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

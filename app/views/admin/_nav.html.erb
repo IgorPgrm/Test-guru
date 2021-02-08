@@ -1,4 +1,19 @@
 <%= render 'shared/nav' %>
-<div class="card">
-  <div class="card-body">Админ Панель</div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="collapse navbar-collapse" id="adminNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to "AddTest", new_admin_test_path, role: "button", class: 'nav-link btn btn-success mr-1' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "GitGistList", admin_gists_path, role: "button", class: 'nav-link btn btn-light mr-1' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Badges", admin_badges_path, role: "button", class: 'nav-link btn btn-warning mr-1' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Achievements", admin_achievements_path, role: "button", class: 'nav-link btn btn-warning mr-1' %>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_123314) do
+ActiveRecord::Schema.define(version: 2021_02_06_212608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "achievements", force: :cascade do |t|
+    t.text "name"
+    t.text "file_name"
+    t.integer "identity"
+    t.text "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_achievements_on_name"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -22,6 +32,17 @@ ActiveRecord::Schema.define(version: 2021_01_22_123314) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "achievement_id"
+    t.bigint "test_passage_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["achievement_id"], name: "index_badges_on_achievement_id"
+    t.index ["test_passage_id"], name: "index_badges_on_test_passage_id"
+    t.index ["user_id"], name: "index_badges_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -55,6 +76,9 @@ ActiveRecord::Schema.define(version: 2021_01_22_123314) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "badge_id"
+    t.boolean "result", default: false
+    t.index ["badge_id"], name: "index_test_passages_on_badge_id"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -94,9 +118,13 @@ ActiveRecord::Schema.define(version: 2021_01_22_123314) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "achievements"
+  add_foreign_key "badges", "test_passages"
+  add_foreign_key "badges", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "badges"
   add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
