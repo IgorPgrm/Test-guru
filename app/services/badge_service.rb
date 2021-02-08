@@ -2,46 +2,42 @@ class BadgeService
 
   def initialize(test_passage)
     @test_passage = test_passage
-    @test = test_passage.test
     @user = test_passage.user
     @user_test_passages = TestPassage.where(user: @user)
-    @achievements = Achievement.all
     @received_badges  = []
   end
 
   def call
-    @achievements.each do |a|
+    Achievement.all.each do |a|
       @achievement = a
       identity = a.identity
       value = a.value
-      result = send identity, value
-      if result
-        issue_badge(a)
-      end
+      result = send(identity, value)
+      issue_badge(a) if result
     end
-    @received_badges
+    @received_badges.map{|rb| rb.achievement.name}.join(', ')
   end
 
   def category_all(category_name)
-    return false unless @test_passage.test.category.title == category_name || user_does_not_have_this_badge
+    return false if @test_passage.test.category.title != category_name || user_does_not_have_this_badge
 
-    all_tests_ids_with_category = Test.show_by_category(category_name).pluck(:id).sort
-    user_passed_tp = @user_test_passages.where(test_id: all_tests_ids_with_category,
-                                               result: true).pluck(:test_id).sort.uniq
+    all_tests_ids_with_category = Test.show_by_category(category_name).order(id: :asc).pluck(:id)
+    user_passed_tp = @user_test_passages.distinct.where(test_id: all_tests_ids_with_category,
+                                               result: true).order(test_id: :asc).pluck(:test_id)
     all_tests_ids_with_category == user_passed_tp
   end
 
   def level_all(lvl)
-    return false unless @test_passage.test.level == lvl || !user_does_not_have_this_badge
+    return false if @test_passage.test.level == lvl || !user_does_not_have_this_badge
 
-    all_test_ids_with_lvl = Test.where(level: lvl).ids.sort
-    user_passed_tp = @user_test_passages.where(test_id: all_test_ids_with_lvl,
-                                               result: true).pluck(:test_id).sort.uniq
+    all_test_ids_with_lvl = Test.where(level: lvl).order(id: :asc).pluck(:id)
+    user_passed_tp = @user_test_passages.distinct.where(test_id: all_test_ids_with_lvl,
+                                               result: true).order(test_id: :asc).pluck(:test_id)
     all_test_ids_with_lvl == user_passed_tp
   end
 
   def first_try(empty)
-    @user_test_passages.where(test_id: @test.id).count == 1 && @test_passage.success?
+    @user_test_passages.where(test_id: @test_passage.test.id).count == 1
   end
 
   def issue_badge(achievement)
