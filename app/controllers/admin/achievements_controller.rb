@@ -45,7 +45,7 @@ class Admin::AchievementsController < ActionController::Base
   end
 
   def available_image
-    @images = Dir.glob(Rails.application.assets.paths[1] + "/achievements/*.png").select { |e| File.file? e }
+    @images = Dir.glob("./app/assets/images/achievements/*.png").select { |e| File.file? e }
     @images.map! {|f| f.split("/").last}
   end
 end
