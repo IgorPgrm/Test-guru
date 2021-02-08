@@ -19,7 +19,7 @@ class BadgeService
   end
 
   def category_all(category_name)
-    return false if @test_passage.test.category.title != category_name || user_does_not_have_this_badge
+    return false if @test_passage.test.category.title != category_name || user_does_not_have_this_badge?
 
     all_tests_ids_with_category = Test.show_by_category(category_name).order(id: :asc).pluck(:id)
     user_passed_tp = @user_test_passages.distinct.where(test_id: all_tests_ids_with_category,
@@ -28,7 +28,7 @@ class BadgeService
   end
 
   def level_all(lvl)
-    return false if @test_passage.test.level != lvl || !user_does_not_have_this_badge
+    return false if @test_passage.test.level != lvl.to_i || user_does_not_have_this_badge?
 
     all_test_ids_with_lvl = Test.where(level: lvl).order(id: :asc).pluck(:id)
     user_passed_tp = @user_test_passages.distinct.where(test_id: all_test_ids_with_lvl,
@@ -46,7 +46,7 @@ class BadgeService
     @user.badges.push(badge) ? badge : false
   end
 
-  def user_does_not_have_this_badge
+  def user_does_not_have_this_badge?
     @user.badges.where(achievement: @achievement).present?
   end
 end
