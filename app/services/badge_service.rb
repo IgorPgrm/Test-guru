@@ -28,7 +28,7 @@ class BadgeService
   end
 
   def level_all(lvl)
-    return false if @test_passage.test.level == lvl || !user_does_not_have_this_badge
+    return false if @test_passage.test.level != lvl || !user_does_not_have_this_badge
 
     all_test_ids_with_lvl = Test.where(level: lvl).order(id: :asc).pluck(:id)
     user_passed_tp = @user_test_passages.distinct.where(test_id: all_test_ids_with_lvl,
