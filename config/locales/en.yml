@@ -62,6 +62,7 @@ en:
         header: "Tricky Tests"
       create:
         success: "Test was cuccessfuly created"
+        pass_time: "Time for pass test(min.)"
       test:
         id: "ID"
         question_id: "ID Question"
