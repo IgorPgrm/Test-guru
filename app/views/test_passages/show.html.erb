@@ -4,6 +4,22 @@
   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= question_percent_now %>%"
        aria-valuenow="<%= question_percent_now %>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+<% if @test_passage.test.time > 0 %>
+  <%= content_tag :div, @test_passage.redirect_delay, class:'hide time-stamp' %>
+<% end %>
+
+<div class="soon" id="my-soon-counter"
+     data-due="<%= timer_format %>"
+     data-layout="inline label-uppercase label-small"
+     data-scale-max="m"
+     data-format="d,h,m,s"
+     data-face="slot rotate"
+     data-visual="ring cap-round progressgradient-00fff6_075fff ring-width-custom gap-0"
+     data-labels-days="Дни,Дней"
+     data-labels-hours="Часы,Часов"
+     data-labels-minutes="Минуты,Минут"
+     data-labels-seconds="Секунды,Секунд">
+</div>
 
 <div class="container justify-content-center">
 <div class="card" style="width: 18rem;">
