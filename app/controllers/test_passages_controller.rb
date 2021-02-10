@@ -7,9 +7,8 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def update
-    unless @test_passage.time_is_over?
       @test_passage.accept!(params[:answer_ids])
-      if @test_passage.completed?
+      if @test_passage.completed? || @test_passage.time_left?
         TestsMailer.completed_test(@test_passage).deliver_now
         if @test_passage.success?
           badges = BadgeService.new(@test_passage).call
@@ -19,7 +18,6 @@ class TestPassagesController < ApplicationController
       else
         render :show
       end
-    end
   end
 
   def gist

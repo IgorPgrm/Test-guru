@@ -41,7 +41,7 @@ class TestPassage < ApplicationRecord
     self.created_at + (self.test.time.minutes)
   end
 
-  def time_is_over?
+  def time_left?
     return false if self.test.time.zero?
 
     Time.now > test_end_time
