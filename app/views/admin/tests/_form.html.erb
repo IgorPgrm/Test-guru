@@ -16,6 +16,9 @@
     class: "btn btn-secondary dropdown-toggle"%>
           </div>
     <br>
+          <%= f.label :time, t('admin.tests.create.pass_time') %>
+          <%= f.number_field :time, class: 'form-control' %>
+    <br>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
       </div>

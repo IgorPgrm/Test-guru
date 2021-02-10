@@ -6,6 +6,7 @@
       <th><%= t('activerecord.attributes.test.title') %></th>
       <th><%= t('questions.header') %></th>
       <th><%= t('helpers.label.test.level') %></th>
+      <th><%= t('helpers.label.test.time') %></th>
       <th><%= t('Action') %></th>
     </tr>
     <% @tests.each do |t| %>
@@ -21,6 +22,9 @@
         </td>
         <td>
           <%= t.level %>
+        </td>
+        <td>
+          <%= passed_time(t) %>
         </td>
       <td>
         <% if t.questions.count > 0 %>

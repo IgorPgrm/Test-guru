@@ -7,17 +7,17 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
-    if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
-      if @test_passage.success?
-        badges = BadgeService.new(@test_passage).call
-        flash[:notice] = "Получены награды: #{badges}" if badges.present?
+      @test_passage.accept!(params[:answer_ids])
+      if @test_passage.completed? || @test_passage.time_left?
+        TestsMailer.completed_test(@test_passage).deliver_now
+        if @test_passage.success?
+          badges = BadgeService.new(@test_passage).call
+          flash[:notice] = "Получены награды: #{badges}" if badges.present?
+        end
+        redirect_to result_test_passage_path(@test_passage)
+      else
+        render :show
       end
-      redirect_to result_test_passage_path(@test_passage)
-    else
-      render :show
-    end
   end
 
   def gist

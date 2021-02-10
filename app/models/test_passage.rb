@@ -37,6 +37,20 @@ class TestPassage < ApplicationRecord
     self.test.questions.where('id > ?', question.id).count
   end
 
+  def test_end_time
+    self.created_at + (self.test.time.minutes)
+  end
+
+  def time_left?
+    return false if self.test.time.zero?
+
+    Time.now > test_end_time
+  end
+
+  def redirect_delay
+    (test_end_time - Time.now).to_i
+  end
+
   private
 
   def before_validation_set_first_question

@@ -11,3 +11,4 @@ ru:
     errors:
       messages:
         blank: "не может быть пустым"
+  test_pass_time: "Время прохождения теста(мин.)"
