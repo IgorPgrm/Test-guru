@@ -15,11 +15,11 @@ class TestPassagesController < ApplicationController
           badges = BadgeService.new(@test_passage).call
           flash[:notice] = "Получены награды: #{badges}" if badges.present?
         end
+        redirect_to result_test_passage_path(@test_passage)
       else
         render :show
       end
     end
-    redirect_to result_test_passage_path(@test_passage)
   end
 
   def gist
